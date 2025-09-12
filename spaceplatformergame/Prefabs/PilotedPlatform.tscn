@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cme8kmmmxqwr8"]
+
+[ext_resource type="Script" path="res://Scripts/PilotedMovingPlatform.gd" id="1_tita2"]
+[ext_resource type="Texture2D" uid="uid://bf7swcy7jrm66" path="res://icon.svg" id="2_dosw8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymuwd"]
+size = Vector2(24, 16)
+
+[node name="PilotedPlatform" type="Node2D"]
+physics_interpolation_mode = 1
+texture_filter = 1
+script = ExtResource("1_tita2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 102
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.18, 0.125)
+texture = ExtResource("2_dosw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ymuwd")

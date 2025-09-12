@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxh70v1unh8fe"]
+
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="1_c480q"]
+[ext_resource type="Texture2D" uid="uid://da7qohye8emln" path="res://Images/SpriteSheet.png" id="2_ndygo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kqgo"]
+radius = 4.0
+
+[node name="EnemyBullet" type="Area2D"]
+texture_filter = 1
+collision_layer = 64
+collision_mask = 3
+script = ExtResource("1_c480q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5kqgo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ndygo")
+region_enabled = true
+region_rect = Rect2(40, 48, 8, 8)

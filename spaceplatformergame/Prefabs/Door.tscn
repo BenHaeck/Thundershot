@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ry68c020vf1m"]
+
+[ext_resource type="Script" path="res://Scripts/LevelTransition.gd" id="1_k3jgi"]
+[ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_rg7r0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa0yh"]
+size = Vector2(2, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qya2k"]
+size = Vector2(3, 3)
+
+[node name="Door" type="Area2D"]
+texture_filter = 3
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_k3jgi")
+level_path = "res://Levels/Test 1.tscn"
+starting_point = "1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 1.5)
+shape = SubResource("RectangleShape2D_fa0yh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, 0)
+texture = ExtResource("2_rg7r0")
+region_enabled = true
+region_rect = Rect2(0, 48, 4, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-7, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_qya2k")

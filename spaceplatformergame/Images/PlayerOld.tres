@@ -1,0 +1,85 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://icwfy8hycxkt"]
+
+[ext_resource type="Texture2D" uid="uid://da7qohye8emln" path="res://Images/SpriteSheet.png" id="1_ywvq8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js4yo"]
+atlas = ExtResource("1_ywvq8")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58dwo"]
+atlas = ExtResource("1_ywvq8")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo4bx"]
+atlas = ExtResource("1_ywvq8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a085y"]
+atlas = ExtResource("1_ywvq8")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31alj"]
+atlas = ExtResource("1_ywvq8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5qgl"]
+atlas = ExtResource("1_ywvq8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye6y0"]
+atlas = ExtResource("1_ywvq8")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js4yo")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58dwo")
+}],
+"loop": true,
+"name": &"Gunshot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo4bx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a085y")
+}],
+"loop": true,
+"name": &"Rising",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31alj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5qgl")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye6y0")
+}],
+"loop": true,
+"name": &"WallSlide",
+"speed": 5.0
+}]

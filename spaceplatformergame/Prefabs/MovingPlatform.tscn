@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://1k6bi2x1f7hs"]
+
+[ext_resource type="Script" path="res://Scripts/MovingPlatform.gd" id="1_xc04w"]
+[ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_j1se3"]
+[ext_resource type="PackedScene" uid="uid://csb12x7jmi64l" path="res://Prefabs/Gear.tscn" id="3_j2bfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17roc"]
+size = Vector2(16, 24)
+
+[node name="MovingPlatform" type="Node2D"]
+position = Vector2(64, 96)
+script = ExtResource("1_xc04w")
+speed = 4.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 10
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_j1se3")
+region_enabled = true
+region_rect = Rect2(16, 24, 16, 24)
+
+[node name="Gear" parent="StaticBody2D" instance=ExtResource("3_j2bfp")]
+self_modulate = Color(0.550781, 0.550781, 0.550781, 1)
+position = Vector2(-3, 4)
+rps = -0.25
+
+[node name="Gear3" parent="StaticBody2D" instance=ExtResource("3_j2bfp")]
+self_modulate = Color(0.550781, 0.550781, 0.550781, 1)
+position = Vector2(-3, -6)
+rps = -0.25
+
+[node name="Gear2" parent="StaticBody2D" instance=ExtResource("3_j2bfp")]
+self_modulate = Color(0.550781, 0.550781, 0.550781, 1)
+position = Vector2(2, -1)
+rotation = 0.785398
+rps = 0.25
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+texture = ExtResource("2_j1se3")
+region_enabled = true
+region_rect = Rect2(0, 24, 16, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_17roc")
