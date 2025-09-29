@@ -102,7 +102,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvhbx"]
 radius = 3.0
-height = 9.8
+height = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
@@ -118,6 +118,7 @@ sprite_frames = SubResource("SpriteFrames_pm4i6")
 animation = &"Running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_bvhbx")
 
 [node name="HitListener" type="Node" parent="."]

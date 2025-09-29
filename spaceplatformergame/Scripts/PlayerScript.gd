@@ -3,9 +3,9 @@ extends CharacterBody2D
 class_name Player
 
 const MOVE_SPEED:float = 150/2;
-const SPEED_DELTA: float = 600/2;
+const SPEED_DELTA: float = 900/2;
 const SLOW_DELTA: float = 800/2;
-const AIR_SPEED_DELTA_MULT: float = 0.6;
+const AIR_SPEED_DELTA_MULT: float = 0.5;
 const GRAVITY: float = 600/4;
 const FALL_GRAVITY: float = 600/2;
 
@@ -21,10 +21,11 @@ const JUMP_HEIGHT: float = 24;
 const JUMP_CANCEL_LOCK: float = 28;
 const JUMP_IMPULSE: float = sqrt(2*JUMP_HEIGHT*GRAVITY);
 
-const COYOTE_TIME: float = 0.25;
+const COYOTE_TIME: float = 0.125;
+
 
 const SHOOT_BOUNCE:float = 35;
-
+const SHOOT_WALL_BOUNCE:float = 64*0.6;
 
 const SHOOT_DAMPEN: float = 0.25;
 const BULLET_SPEED: float = 300;
@@ -170,7 +171,7 @@ func fire():
 	get_parent().add_child(b);
 	
 	if current_state == wall_sliding_state:
-		velocity.x = WALL_JUMP_IMPULSE.x * get_wall_normal().x;
+		velocity.x = SHOOT_WALL_BOUNCE * get_wall_normal().x;
 	
 	can_shoot = false;
 	

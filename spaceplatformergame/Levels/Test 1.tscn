@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://da7qohye8emln" path="res://Images/SpriteSheet.png" id="11_0wmrn"]
 [ext_resource type="Script" path="res://Scripts/HitListener.gd" id="12_3lopl"]
 [ext_resource type="PackedScene" uid="uid://dyjqvmt443mp6" path="res://Prefabs/DisapearingMurderBox.tscn" id="13_1esdq"]
-[ext_resource type="Script" path="res://Bouncer.gd" id="14_x710k"]
+[ext_resource type="Script" path="res://Scripts/Bouncer.gd" id="14_x710k"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="15_imfkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otnf3"]
@@ -100,7 +100,7 @@ rotation = 3.14159
 position = Vector2(-153, 0)
 
 [node name="Player" parent="." instance=ExtResource("6_0u7eo")]
-position = Vector2(56, 152)
+position = Vector2(352, -308)
 
 [node name="PowerCore2" parent="." instance=ExtResource("3_2fh1r")]
 position = Vector2(200, 40)

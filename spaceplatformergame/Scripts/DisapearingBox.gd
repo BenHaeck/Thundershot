@@ -2,6 +2,7 @@ extends Node2D
 
 @export var hit_charge: float = 2;
 @export var disable_alpha: float = 0.5;
+@export var num_frames: int = 3;
 @onready var shape = $Hitbox/CollisionShape2D;
 @onready var sprite = $Hitbox/Sprite2D;
 var charge_timer = 0;
@@ -12,10 +13,18 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	charge_timer = maxf(charge_timer - delta, 0);
-	if charge_timer > 0:
-		sprite.self_modulate.a = disable_alpha;
-	else:
-		sprite.self_modulate.a = 1;
+	#if charge_timer > 0:
+	#	sprite.self_modulate.a = disable_alpha;
+	#else:
+	#	sprite.self_modulate.a = 1;
+	var anim_phase = charge_timer/hit_charge
+	anim_phase = 0.5 - anim_phase;
+	anim_phase *= 2;
+	anim_phase*=anim_phase;
+	anim_phase*=anim_phase;
+	anim_phase*=anim_phase;
+	anim_phase = 1 - anim_phase;
+	sprite.frame = floorf(anim_phase * num_frames * 0.99999)
 	shape.disabled = charge_timer > 0;
 	pass
 	

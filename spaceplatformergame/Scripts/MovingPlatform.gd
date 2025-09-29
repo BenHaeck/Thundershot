@@ -20,7 +20,9 @@ func _physics_process(delta: float) -> void:
 		
 		var n_pos = Vector2.ZERO.lerp(target_pos, smoothstep(0, 1, w));
 		if delta > 0:
-			platform.constant_linear_velocity = (n_pos - platform.position) / delta
+			var clv = (n_pos - platform.position) / delta
+			clv.y *= 0.25;
+			platform.constant_linear_velocity = clv
 		platform.position = n_pos;
 	else:
 		platform.constant_linear_velocity = Vector2.ZERO;
