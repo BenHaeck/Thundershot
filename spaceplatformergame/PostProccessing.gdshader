@@ -4,6 +4,8 @@ uniform vec4 world_tint: source_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 uniform vec4 vin_tint: source_color = vec4(0.5, 0.5, 0.5, 1.0);
 
+uniform float color_eat = 0.1;
+
 uniform sampler2D screen_texture: hint_screen_texture, filter_nearest;
 
 void vertex() {
@@ -15,12 +17,15 @@ void fragment() {
 	vec3 inv_color = (1.0-COLOR.rgb);
 	//COLOR.rgb = 1.0 - inv_color.rgb * inv_color.rgb * inv_color.rgb;
 	COLOR.rgb = (world_color.rgb + world_color.rgb * world_color.rgb) * 0.5;
-
-	vec2 vin = (SCREEN_UV - 0.5)*2.0;
-	vin *= vin;
+	vec2 vin = 0.5 - SCREEN_UV.xy;
+	vin *= vin * 4.0;
+	vin *= vin * vin ;
 	vin = 1.0 - vin;
-	float vin_total = (vin.r * vin.g);
-	COLOR.rgb *= world_tint.rgb * (vin_total) + vin_tint.rgb * (1.0-vin_total);
+	vin.x = vin.x * vin.y;
+	vec3 st = world_tint.rgb * vin.x + vin_tint.rgb * (1.0 - vin.x);
+	COLOR.rgb = COLOR.rgb * st;
+	COLOR.rgb = COLOR.rgb * (1.0 + color_eat) - color_eat;
+	COLOR.rgb = clamp(COLOR.rgb, 0.0, 1.0);
 	// Called for every pixel the material is visible on.
 }
 

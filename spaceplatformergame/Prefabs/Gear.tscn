@@ -5,6 +5,7 @@
 
 [node name="Gear" type="Sprite2D"]
 self_modulate = Color(0.582031, 0.582031, 0.582031, 1)
+texture_filter = 1
 position = Vector2(3, 3)
 texture = ExtResource("1_71ei6")
 region_enabled = true

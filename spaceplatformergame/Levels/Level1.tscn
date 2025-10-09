@@ -1,30 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://c8dliyptkw5ss"]
+[gd_scene load_steps=7 format=4 uid="uid://c8dliyptkw5ss"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_82m4s"]
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="2_4seqb"]
 [ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="3_vdr6t"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="4_t5jwy"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="5_x5gue"]
-[ext_resource type="Shader" path="res://PostProccessing.gdshader" id="6_fluq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjucs"]
 size = Vector2(8, 16)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2tq5m"]
-shader = ExtResource("6_fluq4")
-shader_parameter/world_tint = Color(0.773438, 1, 0.824802, 1)
-shader_parameter/vin_tint = Color(0.28125, 0.256846, 0.189568, 1)
-
-[sub_resource type="Gradient" id="Gradient_wv7uh"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.820313, 0.820313, 0.820313, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_anm4u"]
-gradient = SubResource("Gradient_wv7uh")
-width = 16
-height = 16
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
 
 [node name="Level1" type="Node2D"]
 physics_interpolation_mode = 1
@@ -61,11 +44,3 @@ point_name = ">"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint"]
 shape = SubResource("RectangleShape2D_vjucs")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-z_index = 100
-material = SubResource("ShaderMaterial_2tq5m")
-position = Vector2(132, 236)
-scale = Vector2(17, 13.5)
-texture = SubResource("GradientTexture2D_anm4u")

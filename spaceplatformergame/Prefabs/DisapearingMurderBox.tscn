@@ -18,7 +18,7 @@ shader_parameter/sway_speed = 0.5
 [node name="DisapearingMurderBox" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_ak8ll")
-hit_charge = 2.5
+hit_charge = 2.87
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_mask = 34
