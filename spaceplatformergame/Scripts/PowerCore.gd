@@ -6,8 +6,12 @@ var hit_color = Color.RED;
 
 var charge:float = 0;
 
-@onready var sprite = $Sprite2D
+#@onready var sprite = $Sprite2D
 
+@onready var light = $Light
+@onready var light_scale = light.scale;
+@onready var light_alpha = light.color.a;
+@onready var particleSystem = $Particles;
 @export var charge_time:float = 1;
 
 func _ready() -> void:
@@ -16,7 +20,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#sprite.self_modulate = Color.WHITE.lerp(hit_color, charge / charge_time)
+	light.scale = light_scale * (charge / charge_time);
+	
+	light.visible = charge > 0;
+	light.color.a = light_alpha * (charge / charge_time);
 	charge = maxf(charge - delta, 0);
+	
+	particleSystem.emitting = charge > 0;
 	
 
 func on_hit(hb: Node2D):

@@ -1,43 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://7yh5wgcn66k7"]
+[gd_scene load_steps=6 format=3 uid="uid://7yh5wgcn66k7"]
 
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="1_h3spa"]
-[ext_resource type="Texture2D" uid="uid://da7qohye8emln" path="res://Images/SpriteSheet.png" id="2_robps"]
+[ext_resource type="Shader" path="res://SwayShader.gdshader" id="2_a7kjo"]
+[ext_resource type="Texture2D" uid="uid://c1enhtp45bltj" path="res://Images/CharacterSheet.png" id="2_dendx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvwd8"]
-radius = 4.0
+radius = 2.5
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4sw06"]
-atlas = ExtResource("2_robps")
-region = Rect2(56, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mhas7"]
-atlas = ExtResource("2_robps")
-region = Rect2(56, 8, 8, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xlxl3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4sw06")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mhas7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6kr1"]
+shader = ExtResource("2_a7kjo")
+shader_parameter/sway_amount = Vector2(0.2, 0.2)
+shader_parameter/offset = Vector2(0.5, 0.5)
+shader_parameter/sway_speed = 60.0
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 32
 collision_mask = 5
 input_pickable = false
 script = ExtResource("1_h3spa")
+rotate_with_vel = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lvwd8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_xlxl3")
-frame_progress = 0.968607
+material = SubResource("ShaderMaterial_d6kr1")
+texture = ExtResource("2_dendx")
+region_enabled = true
+region_rect = Rect2(88, 0, 8, 8)

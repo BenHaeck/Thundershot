@@ -6,7 +6,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tbee7"]
 shader = ExtResource("2_vmlhe")
 shader_parameter/world_tint = Color(0.923823, 1, 0.908557, 1)
-shader_parameter/vin_tint = Color(0.24353, 0.330505, 0.371094, 1)
 shader_parameter/color_eat = 0.1
 
 [sub_resource type="Gradient" id="Gradient_wv7uh"]

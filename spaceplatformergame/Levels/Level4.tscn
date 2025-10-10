@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d38yg6x1mhbqd"]
+[gd_scene load_steps=13 format=4 uid="uid://d38yg6x1mhbqd"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_sqxcn"]
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="2_7d10r"]
@@ -9,9 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="7_42x36"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="8_74j27"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="9_d4sh0"]
+[ext_resource type="Shader" path="res://PostProccessing.gdshader" id="10_0y1ty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_im8wd"]
 size = Vector2(12, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ljtfe"]
+shader = ExtResource("10_0y1ty")
+shader_parameter/world_tint = Color(1, 1, 1, 0.568627)
+shader_parameter/color_eat = 0.05
 
 [node name="Level4" type="Node2D"]
 
@@ -780,6 +786,14 @@ scale = Vector2(-1, 1)
 level_path = "res://Levels/Level5.tscn"
 starting_point = "<"
 door_name = ">"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1000
+material = SubResource("ShaderMaterial_ljtfe")
+offset_left = -40.0
+offset_top = -388.0
+offset_right = 476.0
+offset_bottom = 144.0
 
 [editable path="Conduit/MovingPlatform"]
 [editable path="PowerCore/MovingPlatform"]

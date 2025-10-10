@@ -6,6 +6,7 @@ uniform float sway_speed = 0.5;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
+	//vec2 processed_vert = VERTEX - 0.5;
 	vec2 vert_sway_score = VERTEX - offset;
 	VERTEX += sway_amount*(vert_sway_score).yx * vec2(cos(TIME*sway_speed));
 	

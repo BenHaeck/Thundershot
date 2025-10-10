@@ -5,8 +5,11 @@ var life_time = 10;
 
 var velocity = Vector2.ZERO;
 
+@onready var sprite: Node2D = get_node_or_null("Sprite2D");
+
 @export var limited_lifetime = true;
 @export var peircing = false;
+@export var rotate_with_vel = false;
 
 func _ready() -> void:
 	body_entered.connect(on_hit);
@@ -19,6 +22,9 @@ func _process(delta: float):
 		life_time -= delta;
 		if life_time < 0:
 			queue_free();
+			
+	if sprite != null:
+		sprite.rotation = atan2(velocity.y, velocity.x);
 	pass
 	
 func on_hit(body: Node2D):
@@ -27,7 +33,7 @@ func on_hit(body: Node2D):
 		hl.hit.emit(self);
 		#print("Hit")
 		
-	if !peircing:
+	if !peircing and rotate_with_vel:
 		queue_free();
 	pass
 	

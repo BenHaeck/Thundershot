@@ -62,6 +62,9 @@ var facing_dir = 0;
 
 @export var has_lightning_gun = true;
 
+@onready var w_particles = $WalkParticles;
+@onready var jump_particles = $JumpParticles;
+
 func _ready() -> void:
 	$HitListener.hit.connect(on_hit)
 	sprite.play();
@@ -120,6 +123,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		current_state = recoil_state;
 	
+	w_particles.emitting = current_state == grounded_state and dir.x != 0;
+	w_particles.direction.x = -dir.x
+		
 	
 	# actions
 	
@@ -132,6 +138,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = -WALL_JUMP_IMPULSE.y;
 			velocity.x = WALL_JUMP_IMPULSE.x * jump_type;
+		
+		jump_particles.emitting = true;
+		jump_particles.direction = velocity;
 		jump_anti_queue = true;
 		current_coyote_time = 0;
 		

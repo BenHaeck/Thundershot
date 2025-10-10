@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b30h6bf8ni3wn"]
+[gd_scene load_steps=13 format=3 uid="uid://b30h6bf8ni3wn"]
 
 [ext_resource type="Script" path="res://Scripts/PowerCore.gd" id="1_pknxa"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_lj2cl"]
 [ext_resource type="Script" path="res://Scripts/PoweredAnimator.gd" id="3_ucbpj"]
 [ext_resource type="Script" path="res://Scripts/HitListener.gd" id="3_xwco7"]
+[ext_resource type="Texture2D" uid="uid://bofx1mdkoahhp" path="res://Images/Splotches.png" id="5_58qks"]
+[ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="6_i4q0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oqup"]
 size = Vector2(12, 16)
@@ -42,6 +44,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8m8f3"]
+blend_mode = 1
+
 [node name="PowerCore" type="StaticBody2D"]
 texture_filter = 1
 collision_mask = 102
@@ -60,3 +65,38 @@ script = ExtResource("3_ucbpj")
 
 [node name="HitListener" type="Node" parent="."]
 script = ExtResource("3_xwco7")
+
+[node name="Light2" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0.34902, 0.972549, 1, 0.462745)
+z_index = 110
+texture_filter = 4
+material = SubResource("CanvasItemMaterial_8m8f3")
+scale = Vector2(5, 5)
+texture = ExtResource("5_58qks")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+z_index = 4
+emitting = false
+amount = 12
+lifetime = 0.25
+randomness = 1.0
+lifetime_randomness = 0.25
+texture = ExtResource("6_i4q0k")
+direction = Vector2(0.5, 2)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 170.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+linear_accel_min = -0.5
+angle_max = 270.0
+color = Color(0.34902, 0.972549, 1, 1)
+
+[node name="Light" type="PointLight2D" parent="."]
+scale = Vector2(5, 5)
+color = Color(0.34902, 0.972549, 1, 0.462745)
+texture = ExtResource("5_58qks")
