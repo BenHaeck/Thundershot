@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var lazor_container = $LazorHB
+@onready var lazor_container = $LazerHB
 @onready var rc = $RayCast2D
 
 

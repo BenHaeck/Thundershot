@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ch8vifdii05il"]
 
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="1_5epl1"]
-[ext_resource type="Script" path="res://Prefabs/LazorLogic.gd" id="1_e0nwg"]
+[ext_resource type="Script" path="res://Prefabs/LazerLogic.gd" id="1_e0nwg"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_emapg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqo4e"]
@@ -29,29 +29,29 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_koteb"]
 size = Vector2(2, 12)
 
-[node name="Lazor" type="Node2D"]
+[node name="Lazer" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_e0nwg")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(256, 0)
 
-[node name="LazorHB" type="Node2D" parent="."]
+[node name="LazerHB" type="Node2D" parent="."]
 scale = Vector2(20, 1)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="LazorHB"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="LazerHB"]
 position = Vector2(1, 0)
 rotation = 1.57079
 sprite_frames = SubResource("SpriteFrames_toi2b")
 
-[node name="Hitbox" type="Area2D" parent="LazorHB"]
+[node name="Hitbox" type="Area2D" parent="LazerHB"]
 collision_layer = 16
 collision_mask = 6
 script = ExtResource("2_emapg")
 limited_lifetime = false
 peircing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LazorHB/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LazerHB/Hitbox"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_koteb")
 
