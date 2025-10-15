@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl0wdhhr5yhnj"]
-
-[ext_resource type="Script" path="res://Scripts/CamScript.gd" id="1_u8mad"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c76l361ikx028"]
 
 [sub_resource type="Shader" id="Shader_rynl3"]
 code = "shader_type canvas_item;
@@ -46,32 +44,8 @@ void fragment() {
 //}
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbee7"]
+[resource]
 shader = SubResource("Shader_rynl3")
-shader_parameter/world_tint = Color(0.923823, 1, 0.908557, 1)
-shader_parameter/vin_amount = 1.0
-shader_parameter/color_eat = 0.1
-
-[sub_resource type="Gradient" id="Gradient_wv7uh"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.820313, 0.820313, 0.820313, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d3ykg"]
-gradient = SubResource("Gradient_wv7uh")
-width = 16
-height = 16
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-
-[node name="Camera2D" type="Camera2D"]
-position = Vector2(0, -4)
-script = ExtResource("1_u8mad")
-cam_speed = 4.5
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-z_index = 100
-material = SubResource("ShaderMaterial_tbee7")
-position = Vector2(-4, 4)
-scale = Vector2(17, 13.5)
-texture = SubResource("GradientTexture2D_d3ykg")
+shader_parameter/world_tint = Color(1, 1, 1, 0.568627)
+shader_parameter/vin_amount = 0.5
+shader_parameter/color_eat = 0.05

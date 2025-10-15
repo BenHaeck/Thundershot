@@ -28,7 +28,7 @@ const SHOOT_BOUNCE:float = 35;
 const SHOOT_WALL_BOUNCE:float = 64*0.6;
 
 const SHOOT_DAMPEN: float = 0.25;
-const BULLET_SPEED: float = 300;
+const BULLET_SPEED: float = 250;
 const BULLET_OFFSET: float = 8;
 const SHOOT_RECOV:float = 0.5;
 

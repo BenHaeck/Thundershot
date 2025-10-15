@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d0gucmip0migd"]
+[gd_scene load_steps=14 format=4 uid="uid://d0gucmip0migd"]
 
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="1_ipyb8"]
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="2_2uwt0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/Conduit.gd" id="7_pg6f2"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="8_d7774"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="9_126hc"]
+[ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="10_bp3nl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtwqg"]
 size = Vector2(12, 16)
@@ -241,3 +242,9 @@ position = Vector2(556, 180)
 
 [node name="Spikes32" parent="SpikeHolder" instance=ExtResource("9_126hc")]
 position = Vector2(540, 84)
+
+[node name="ColorRect" parent="." instance=ExtResource("10_bp3nl")]
+offset_left = -48.0
+offset_top = -88.0
+offset_right = 632.0
+offset_bottom = 360.0

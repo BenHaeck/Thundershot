@@ -114,21 +114,22 @@ bullet = ExtResource("2_rhtpy")
 
 [node name="WalkParticles" type="CPUParticles2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 5)
+position = Vector2(0, 6)
 emitting = false
-amount = 9
+amount = 5
+lifetime = 0.5
 randomness = 0.13
 texture = ExtResource("3_0of2s")
 emission_shape = 3
 emission_rect_extents = Vector2(2, 1)
 direction = Vector2(0, -2.25)
 spread = 0.0
-gravity = Vector2(0, 44)
+gravity = Vector2(0, 64)
 initial_velocity_min = 25.0
 initial_velocity_max = 42.0
 damping_min = 12.0
 damping_max = 12.0
-angle_max = 270.0
+angle_max = 360.0
 color = Color(0.625, 0.625, 0.625, 1)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

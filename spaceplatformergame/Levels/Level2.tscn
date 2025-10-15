@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://7ub8p6udp7gq"]
+[gd_scene load_steps=14 format=4 uid="uid://7ub8p6udp7gq"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_k4bls"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="1_u1g22"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="7_xm1x4"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="8_mk3cd"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="9_6i6pf"]
+[ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="11_0uwt3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gb5w"]
 size = Vector2(8, 29)
@@ -209,3 +210,8 @@ rotation = 1.57079
 
 [node name="Spikes26" parent="SpikeHolder" instance=ExtResource("9_6i6pf")]
 position = Vector2(148, 340)
+
+[node name="ColorRect" parent="." instance=ExtResource("11_0uwt3")]
+offset_top = -20.0
+offset_right = 464.0
+offset_bottom = 360.0

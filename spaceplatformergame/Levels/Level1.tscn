@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://c8dliyptkw5ss"]
+[gd_scene load_steps=8 format=4 uid="uid://c8dliyptkw5ss"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_82m4s"]
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="2_4seqb"]
 [ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="3_vdr6t"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="4_t5jwy"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="5_x5gue"]
+[ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="6_6bu4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjucs"]
 size = Vector2(8, 16)
@@ -44,3 +45,8 @@ point_name = ">"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint"]
 shape = SubResource("RectangleShape2D_vjucs")
+
+[node name="ColorRect" parent="." instance=ExtResource("6_6bu4c")]
+offset_top = 124.0
+offset_right = 280.0
+offset_bottom = 356.0
