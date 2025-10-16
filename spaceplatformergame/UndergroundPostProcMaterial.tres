@@ -47,5 +47,5 @@ void fragment() {
 [resource]
 shader = SubResource("Shader_rynl3")
 shader_parameter/world_tint = Color(1, 1, 1, 0.568627)
-shader_parameter/vin_amount = 0.5
+shader_parameter/vin_amount = 0.7
 shader_parameter/color_eat = 0.05

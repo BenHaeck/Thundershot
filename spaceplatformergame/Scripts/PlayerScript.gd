@@ -5,7 +5,7 @@ class_name Player
 const MOVE_SPEED:float = 150/2;
 const SPEED_DELTA: float = 700/2;
 const SLOW_DELTA: float = 900/2;
-const AIR_SPEED_DELTA_MULT: float = 0.56;
+const AIR_SPEED_DELTA_MULT: float = 0.51;
 const GRAVITY: float = 600/4;
 const FALL_GRAVITY: float = 600/2;
 
