@@ -1,8 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ch8vifdii05il"]
+[gd_scene load_steps=11 format=3 uid="uid://ch8vifdii05il"]
 
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="1_5epl1"]
 [ext_resource type="Script" path="res://Prefabs/LazerLogic.gd" id="1_e0nwg"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_emapg"]
+[ext_resource type="Script" path="res://Scripts/AutoPlay.gd" id="3_scw57"]
+[ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="5_yi0me"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwjoy"]
+size = Vector2(3, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqo4e"]
 atlas = ExtResource("1_5epl1")
@@ -18,31 +23,39 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hqo4e")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_s0c2j")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 30.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_koteb"]
-size = Vector2(2, 12)
+size = Vector2(2, 4)
 
 [node name="Lazer" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_e0nwg")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_iwjoy")
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(256, 0)
 
 [node name="LazerHB" type="Node2D" parent="."]
-scale = Vector2(20, 1)
+scale = Vector2(10, 1)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="LazerHB"]
 position = Vector2(1, 0)
 rotation = 1.57079
 sprite_frames = SubResource("SpriteFrames_toi2b")
+frame_progress = 0.592765
+script = ExtResource("3_scw57")
 
 [node name="Hitbox" type="Area2D" parent="LazerHB"]
 collision_layer = 16
@@ -54,6 +67,63 @@ peircing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LazerHB/Hitbox"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_koteb")
+
+[node name="LazerEnd" type="Node2D" parent="."]
+process_mode = 4
+position = Vector2(20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="LazerEnd"]
+position = Vector2(2, 0)
+rotation = 1.57079
+texture = ExtResource("1_5epl1")
+region_enabled = true
+region_rect = Rect2(37, 48, 6, 4)
+
+[node name="Hitbox" type="Area2D" parent="LazerEnd"]
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("2_emapg")
+limited_lifetime = false
+peircing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LazerEnd/Hitbox"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_koteb")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="LazerEnd"]
+lifetime = 0.5
+randomness = 0.2
+texture = ExtResource("5_yi0me")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 3)
+direction = Vector2(-1, 0)
+spread = 70.0
+gravity = Vector2(0, 48)
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+damping_min = 30.0
+damping_max = 30.0
+angle_max = 360.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="LazerEnd"]
+lifetime = 0.5
+randomness = 0.2
+texture = ExtResource("5_yi0me")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 3)
+direction = Vector2(-1, 0)
+spread = 50.0
+gravity = Vector2(0, 48)
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+damping_min = 30.0
+damping_max = 30.0
+angle_max = 360.0
+color = Color(0.866667, 0.239216, 0.239216, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.57079
