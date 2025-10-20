@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch8vifdii05il"]
+[gd_scene load_steps=12 format=3 uid="uid://ch8vifdii05il"]
 
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="1_5epl1"]
 [ext_resource type="Script" path="res://Prefabs/LaserLogic.gd" id="1_e0nwg"]
+[ext_resource type="Material" uid="uid://djwanamoeas15" path="res://LightEscShader.tres" id="2_310sv"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_emapg"]
 [ext_resource type="Script" path="res://Scripts/AutoPlay.gd" id="3_scw57"]
 [ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="5_yi0me"]
@@ -51,6 +52,8 @@ target_position = Vector2(256, 0)
 scale = Vector2(10, 1)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="LaserHB"]
+self_modulate = Color(1, 1, 1, 0.698039)
+material = ExtResource("2_310sv")
 position = Vector2(1, 0)
 rotation = 1.57079
 sprite_frames = SubResource("SpriteFrames_toi2b")
@@ -73,6 +76,8 @@ process_mode = 4
 position = Vector2(20, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="LaserEnd"]
+self_modulate = Color(1, 1, 1, 0.698039)
+material = ExtResource("2_310sv")
 position = Vector2(2, 0)
 rotation = 1.57079
 texture = ExtResource("1_5epl1")
