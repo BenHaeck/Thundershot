@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d0gucmip0migd"]
+[gd_scene load_steps=15 format=4 uid="uid://d0gucmip0migd"]
 
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="1_ipyb8"]
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="2_2uwt0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="4_yu01a"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="5_adt2h"]
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="6_3cusy"]
+[ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="7_dgoeu"]
 [ext_resource type="Script" path="res://Scripts/Conduit.gd" id="7_pg6f2"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="8_d7774"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="9_126hc"]
@@ -60,6 +61,9 @@ speed = 0.5
 [node name="Target" type="Node2D" parent="PowerCore/MovingPlatform"]
 position = Vector2(0, 104)
 
+[node name="ElectricalWire" parent="PowerCore" instance=ExtResource("7_dgoeu")]
+points = PackedVector2Array(0, 0, 24, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 [node name="Conduit" type="Node2D" parent="."]
 position = Vector2(164, 136)
 script = ExtResource("7_pg6f2")
@@ -67,6 +71,11 @@ script = ExtResource("7_pg6f2")
 [node name="PowerCore" parent="Conduit" instance=ExtResource("5_adt2h")]
 position = Vector2(36, 64)
 charge_time = 5.0
+
+[node name="ElectricalWire2" parent="Conduit" instance=ExtResource("7_dgoeu")]
+position = Vector2(36, 64)
+points = PackedVector2Array(0, 0, -32, -52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+sag_amount = 16
 
 [node name="MovingPlatform" parent="Conduit" instance=ExtResource("6_3cusy")]
 position = Vector2(4, 20)

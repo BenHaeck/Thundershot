@@ -9,7 +9,7 @@ const AIR_SPEED_DELTA_MULT: float = 0.51;
 const GRAVITY: float = 600/4;
 const FALL_GRAVITY: float = 600/2;
 
-const FALL_SPEED: float = 250;
+const FALL_SPEED: float = 230;
 const WALL_SLIDE_SPEED: float = 32;
 const WALL_SLIDE_CONTROL: float = 20;
 

@@ -3,12 +3,17 @@ extends Node2D
 @onready var platform = $StaticBody2D
 
 @onready var target_pos: Vector2 = $Target.position
+@onready var line = $Line2D
 
 @export var speed: float = 1;
 
 @export var invert_activation: bool = false;
 
 var w = 0;
+
+func _ready() -> void:
+	line.points[1] = target_pos
+
 func _physics_process(delta: float) -> void:
 	var d = -1;
 	if get_parent().get_active() != invert_activation:

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dov8oha3vcwor"]
+
+[ext_resource type="Script" path="res://Levels/ElectricalWire.gd" id="1_oae1e"]
+
+[node name="ElectricalWire" type="Line2D"]
+self_modulate = Color(0.496094, 0.496094, 0.496094, 1)
+z_index = -10
+points = PackedVector2Array(0, 0, 8, -4)
+width = 1.0
+script = ExtResource("1_oae1e")
+anim_speed = 10

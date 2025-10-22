@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://742ih3638s45"]
+[gd_scene load_steps=16 format=4 uid="uid://742ih3638s45"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_akgwp"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_lnaw3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="6_vv485"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="6_w3sox"]
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="7_vgp56"]
+[ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="9_1uskf"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="10_u1aem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7a6f"]
@@ -69,9 +70,21 @@ invert_activation = true
 [node name="Target" type="Node2D" parent="Conduit2/MovingPlatform3"]
 position = Vector2(0, -128)
 
+[node name="ElectricalWire" parent="Conduit2" instance=ExtResource("9_1uskf")]
+position = Vector2(20, 0)
+points = PackedVector2Array(0, 0, -40, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 [node name="Conduit" type="Node2D" parent="."]
 position = Vector2(308, -244)
 script = ExtResource("4_m4ntp")
+
+[node name="ElectricalWire" parent="Conduit" instance=ExtResource("9_1uskf")]
+position = Vector2(64, -56)
+points = PackedVector2Array(0, 0, -28, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="ElectricalWire2" parent="Conduit" instance=ExtResource("9_1uskf")]
+position = Vector2(24, 4)
+points = PackedVector2Array(0, 0, -64, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="MovingPlatform" parent="Conduit" instance=ExtResource("7_vgp56")]
 position = Vector2(-40, 28)
@@ -118,6 +131,10 @@ charge_time = 3.0
 [node name="PowerCore" parent="." instance=ExtResource("6_w3sox")]
 position = Vector2(420, -488)
 charge_time = 4.0
+
+[node name="ElectricalWire" parent="PowerCore" instance=ExtResource("9_1uskf")]
+points = PackedVector2Array(0, 0, 60, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+sag_amount = 48
 
 [node name="MovingPlatform4" parent="PowerCore" instance=ExtResource("7_vgp56")]
 position = Vector2(16, 48)
@@ -553,6 +570,16 @@ shape = SubResource("RectangleShape2D_sujtv")
 [node name="Conduit3" type="Node2D" parent="."]
 position = Vector2(656, -480)
 script = ExtResource("4_m4ntp")
+
+[node name="ElectricalWire" parent="Conduit3" instance=ExtResource("9_1uskf")]
+position = Vector2(92, -32)
+points = PackedVector2Array(0, 0, 32, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+sag_amount = 40
+
+[node name="ElectricalWire2" parent="Conduit3" instance=ExtResource("9_1uskf")]
+position = Vector2(124, -28)
+points = PackedVector2Array(0, 0, 32, -4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+sag_amount = 12
 
 [node name="MovingPlatform" parent="Conduit3" instance=ExtResource("7_vgp56")]
 position = Vector2(124, 0)

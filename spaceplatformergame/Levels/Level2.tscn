@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://7ub8p6udp7gq"]
+[gd_scene load_steps=15 format=4 uid="uid://7ub8p6udp7gq"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_k4bls"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="1_u1g22"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1enhtp45bltj" path="res://Images/CharacterSheet.png" id="4_xc8rt"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="6_4rroj"]
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="7_xm1x4"]
+[ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="8_dim7b"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="8_mk3cd"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="9_6i6pf"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="11_0uwt3"]
@@ -67,6 +68,10 @@ shape = SubResource("RectangleShape2D_4gb5w")
 [node name="PowerCore" parent="." instance=ExtResource("6_4rroj")]
 position = Vector2(152, 248)
 charge_time = 30.0
+
+[node name="ElectricalWire" parent="PowerCore" instance=ExtResource("8_dim7b")]
+points = PackedVector2Array(0, 0, -8, 68)
+anim_speed = 8
 
 [node name="MovingPlatform" parent="PowerCore" instance=ExtResource("7_xm1x4")]
 position = Vector2(-8, 52)
