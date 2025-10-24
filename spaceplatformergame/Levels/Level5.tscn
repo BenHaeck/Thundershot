@@ -625,6 +625,10 @@ position = Vector2(0, -108)
 position = Vector2(92, -32)
 charge_time = 4.5
 
+[node name="Meter" parent="Conduit3/PowerCore" index="6"]
+position = Vector2(0, 16)
+
 [editable path="Conduit/MovingPlatform2"]
 [editable path="Conduit3/MovingPlatform"]
 [editable path="Conduit3/MovingPlatform2"]
+[editable path="Conduit3/PowerCore"]

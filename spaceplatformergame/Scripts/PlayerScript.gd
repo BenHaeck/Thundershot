@@ -65,6 +65,8 @@ var facing_dir = 0;
 @onready var w_particles = $WalkParticles;
 @onready var jump_particles = $JumpParticles;
 
+@onready var gun_particle: PackedScene = load("res://Prefabs/GunParticle.tscn");
+
 func _ready() -> void:
 	$HitListener.hit.connect(on_hit)
 	sprite.play();
@@ -178,6 +180,12 @@ func fire():
 	
 	velocity.y = -SHOOT_BOUNCE;
 	get_parent().add_child(b);
+	
+	var gp = gun_particle.instantiate();
+	gp.global_position = b.global_position;
+	gp.direction = fire_dir;
+	get_parent().add_child(gp);
+	gp.emitting = true;
 	
 	if current_state == wall_sliding_state:
 		velocity.x = SHOOT_WALL_BOUNCE * get_wall_normal().x;

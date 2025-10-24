@@ -34,6 +34,10 @@ func on_hit(body: Node2D):
 		#print("Hit")
 		
 	if !peircing and rotate_with_vel:
+		var particles = get_node_or_null("Sprite2D/CPUParticles2D")
+		if particles != null:
+			particles.reparent(get_parent());
+			particles.emitting = false;
 		queue_free();
 	pass
 	
@@ -44,6 +48,10 @@ func on_hit_a(area: Area2D):
 		#print("Hit")
 	
 	if !peircing:
+		var particles = get_node_or_null("Sprite2D/CPUParticles2D")
+		if particles != null:
+			particles.reparent(get_parent());
+			particles.emitting = false;
 		queue_free();
 		
 	pass
