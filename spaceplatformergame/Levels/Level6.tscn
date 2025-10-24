@@ -438,6 +438,13 @@ level_path = "res://Levels/Level5.tscn"
 starting_point = ">"
 door_name = "<"
 
+[node name="Door2" parent="." instance=ExtResource("12_v58x6")]
+position = Vector2(800, -768)
+scale = Vector2(-1, 1)
+level_path = "res://Levels/Level7.tscn"
+starting_point = "<"
+door_name = ">"
+
 [editable path="Conduit2/MovingPlatform2"]
 [editable path="Conduit3/MovingPlatform"]
 [editable path="Conduit4/MovingPlatform"]
