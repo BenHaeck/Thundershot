@@ -13,8 +13,12 @@ extends CharacterBody2D
 @export var animation_name: String = "default"
 @export var hit_animation_name: String = "electrified"
 
+@export var hitbox: NodePath = "";
+@onready var hitbox_node: Hitbox = get_node_or_null(hitbox)
+
 var charge = 0;
 @export var charge_time = 2;
+@export var disable_hitbox_if_charged = false;
 
 
 func _ready() -> void:
@@ -45,6 +49,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		use_speed = speed
 		sprite.animation = animation_name
+	
+	if disable_hitbox_if_charged and hitbox_node != null:
+		if charge > 0:
+			hitbox_node.process_mode = Node.PROCESS_MODE_DISABLED
+		else:
+			hitbox_node.process_mode = Node.PROCESS_MODE_INHERIT
 		
 	velocity.x = move_toward(velocity.x, use_speed * dir, acceleration * delta);
 	sprite.scale.x = absf(sprite.scale.x) * dir
