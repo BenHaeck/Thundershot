@@ -3,17 +3,20 @@ extends CharacterBody2D
 class_name Player
 
 const MOVE_SPEED:float = 150/2;
-const SPEED_DELTA: float = 700/2;
-const SLOW_DELTA: float = 900/2;
-const AIR_SPEED_DELTA_MULT: float = 0.51;
-const GRAVITY: float = 600/4;
+const SPEED_DELTA: float = 590/2;
+const SLOW_DELTA: float = 700/2;
+const SLOW2_DELTA: float = 1500/2;
+const AIR_SPEED_DELTA_MULT: float = 0.41;
+
+#const GRAVITY: float = 600/4;
+const GRAVITY: float = 630/4;
 const FALL_GRAVITY: float = 600/2;
 
-const FALL_SPEED: float = 230;
+const FALL_SPEED: float = 210;
 const WALL_SLIDE_SPEED: float = 32;
 const WALL_SLIDE_CONTROL: float = 20;
 
-const WALL_SLIDE_FRICTION: float = 500;
+const WALL_SLIDE_FRICTION: float = 540;
 
 const WALL_JUMP_IMPULSE: Vector2 = Vector2(64, 94);
 
@@ -96,8 +99,10 @@ func _physics_process(delta: float) -> void:
 	
 	var standing = is_on_floor();
 	
-	if dir.x * velocity.x < 0:
-		use_sd += SLOW_DELTA;
+	if dir.x == 0:
+		use_sd = SLOW_DELTA;
+	elif dir.x * velocity.x < 0:
+		use_sd += SLOW2_DELTA;
 	if !standing:
 		use_sd *= AIR_SPEED_DELTA_MULT
 	

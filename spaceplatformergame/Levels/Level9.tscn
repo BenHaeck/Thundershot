@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=4 uid="uid://dh6pmhiveu215"]
+
+[ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="1_10tgf"]
+[ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_lpbi7"]
+[ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="2_oet04"]
+[ext_resource type="PackedScene" uid="uid://dyjqvmt443mp6" path="res://Prefabs/DisapearingMurderBox.tscn" id="4_i5g31"]
+[ext_resource type="PackedScene" uid="uid://daofs7q0dqiry" path="res://Prefabs/TrashEater.tscn" id="4_rsefw"]
+
+[node name="Level9" type="Node2D"]
+
+[node name="Camera2D" parent="." instance=ExtResource("1_10tgf")]
+position = Vector2(116, 104)
+
+[node name="BetterTilemap" parent="." instance=ExtResource("1_lpbi7")]
+tile_map_data = PackedByteArray("AAACABAAAAACAAAAAAADABAAAAACAAAAAAAEABAAAAACAAAAAAAFABAAAAACAAAAAAAGABAAAAABAAAAAAAGABEAAAABAAEAAAAGABIAAAABAAEAAAAGABMAAAABAAEAAAAGABQAAAABAAEAAAAGABUAAAABAAEAAAAHABYAAAACAAAAAAAIABYAAAACAAAAAAAJABYAAAACAAAAAAAKABYAAAACAAAAAAALABUAAAABAAEAAAALABQAAAABAAEAAAALABMAAAABAAEAAAALABIAAAABAAEAAAALABEAAAABAAAAAAAMABEAAAACAAAAAAANABEAAAACAAAAAAAOABEAAAACAAAAAAAPABEAAAACAAAAAAAQABEAAAACAAAAAAARABEAAAABAAAAAAARABIAAAABAAEAAAARABMAAAABAAEAAAARABQAAAABAAEAAAARABUAAAABAAEAAAAWABIAAAACAAAAAAAVABIAAAABAAAAAAAYABIAAAACAAAAAAAXABIAAAACAAAAAAAZABIAAAACAAAAAAAbABIAAAACAAAAAAAaABIAAAACAAAAAAABAA8AAAABAAEAAAABAA4AAAABAAEAAAABAA0AAAABAAEAAAABAAwAAAABAAEAAAABAAsAAAABAAEAAAABAAoAAAABAAEAAAAiABUAAAABAAEAAAAiABQAAAABAAEAAAAiABMAAAABAAEAAAAiABIAAAABAAEAAAAiABEAAAABAAEAAAAiABAAAAABAAEAAAAiAA8AAAABAAEAAAAiAA4AAAABAAEAAAAiAA0AAAABAAEAAAAiAAwAAAABAAEAAAAcABIAAAABAAAAAAAcABMAAAABAAEAAAAcABQAAAABAAEAAAAcABUAAAABAAEAAAAVABMAAAABAAEAAAAVABQAAAABAAEAAAAVABUAAAABAAEAAAAhABYAAAACAAAAAAAgABYAAAACAAAAAAAfABYAAAACAAAAAAAeABYAAAACAAAAAAAdABYAAAACAAAAAAAUABYAAAACAAAAAAATABYAAAACAAAAAAASABYAAAACAAAAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("2_oet04")]
+position = Vector2(32, 120)
+
+[node name="MurderBoxs" type="Node2D" parent="."]
+
+[node name="DisapearingMurderBox" parent="MurderBoxs" instance=ExtResource("4_i5g31")]
+position = Vector2(160, 120)
+
+[node name="DisapearingMurderBox3" parent="MurderBoxs" instance=ExtResource("4_i5g31")]
+position = Vector2(244, 124)
+
+[node name="DisapearingMurderBox2" parent="MurderBoxs" instance=ExtResource("4_i5g31")]
+position = Vector2(72, 116)
+
+[node name="TrashEaters" type="Node2D" parent="."]
+
+[node name="TrashEater" parent="TrashEaters" instance=ExtResource("4_rsefw")]
+position = Vector2(96, 132)
+
+[node name="TrashEater2" parent="TrashEaters" instance=ExtResource("4_rsefw")]
+position = Vector2(200, 140)

@@ -22,3 +22,7 @@ func get_generator(node: Node):
 	
 	return null;
 	
+enum DirectionX{
+	left = -1,
+	right = 1
+}

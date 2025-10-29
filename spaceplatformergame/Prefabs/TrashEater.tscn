@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://daofs7q0dqiry"]
+
+[ext_resource type="Script" path="res://Scripts/BasicGroundedEnemy.gd" id="1_un6qg"]
+[ext_resource type="Script" path="res://Scripts/HitListener.gd" id="2_yl5ed"]
+[ext_resource type="Texture2D" uid="uid://c0qh02ei60xjr" path="res://Images/Enemies.png" id="3_t1uh8"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="4_yjv6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrymy"]
+size = Vector2(12, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb5u3"]
+atlas = ExtResource("3_t1uh8")
+region = Rect2(0, 0, 12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfr0j"]
+atlas = ExtResource("3_t1uh8")
+region = Rect2(12, 0, 12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkgyl"]
+atlas = ExtResource("3_t1uh8")
+region = Rect2(24, 0, 12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4754j"]
+atlas = ExtResource("3_t1uh8")
+region = Rect2(36, 0, 12, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_og3o0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb5u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfr0j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_lkgyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4754j")
+}],
+"loop": true,
+"name": &"electrified",
+"speed": 14.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaai4"]
+size = Vector2(11, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmmx0"]
+size = Vector2(9, 8)
+
+[node name="TrashEater" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 33
+script = ExtResource("1_un6qg")
+speed = 65
+acceleration = 190.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(5, 4)
+target_position = Vector2(0, 3)
+hit_from_inside = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vrymy")
+
+[node name="HitListener" type="Node" parent="."]
+script = ExtResource("2_yl5ed")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_og3o0")
+frame_progress = 0.622552
+
+[node name="Hitbox" type="Area2D" parent="Sprite2D"]
+collision_layer = 64
+collision_mask = 18
+script = ExtResource("4_yjv6y")
+limited_lifetime = false
+peircing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hitbox"]
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_aaai4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Hitbox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_hmmx0")

@@ -316,7 +316,7 @@ points = PackedVector2Array(0, 0, 32, -164, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="ElectricalWire3" parent="Conduit3" instance=ExtResource("7_di8sd")]
 position = Vector2(4, -128)
-points = PackedVector2Array(0, 0, -28, -16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+points = PackedVector2Array(0, 0, -28, -16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="MovingPlatform" parent="Conduit3" instance=ExtResource("2_7d10r")]
 position = Vector2(8, 100)
