@@ -21,6 +21,7 @@ collision_mask = 5
 input_pickable = false
 script = ExtResource("1_h3spa")
 rotate_with_vel = true
+damage_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lvwd8")

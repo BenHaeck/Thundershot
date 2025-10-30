@@ -108,7 +108,7 @@ height = 8.0
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
 collision_layer = 2
-collision_mask = 85
+collision_mask = 341
 script = ExtResource("1_v5o81")
 bullet = ExtResource("2_rhtpy")
 

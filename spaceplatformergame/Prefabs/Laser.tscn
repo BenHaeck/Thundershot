@@ -66,6 +66,7 @@ collision_mask = 6
 script = ExtResource("2_emapg")
 limited_lifetime = false
 peircing = true
+damage_type = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaserHB/Hitbox"]
 position = Vector2(1, 0)
@@ -90,6 +91,7 @@ collision_mask = 6
 script = ExtResource("2_emapg")
 limited_lifetime = false
 peircing = true
+damage_type = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaserEnd/Hitbox"]
 position = Vector2(1, 0)

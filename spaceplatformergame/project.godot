@@ -74,6 +74,7 @@ PlFire={
 2d_physics/layer_5="LevelTrigger"
 2d_physics/layer_6="PlayerBullets"
 2d_physics/layer_7="EnemyBullets"
+2d_physics/layer_9="LevelGeometry2"
 
 [physics]
 

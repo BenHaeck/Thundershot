@@ -10,6 +10,8 @@ var velocity = Vector2.ZERO;
 @export var limited_lifetime = true;
 @export var peircing = false;
 @export var rotate_with_vel = false;
+@export var damage = 2;
+@export var damage_type = HitListener.DamageType.Generic;
 
 func _ready() -> void:
 	body_entered.connect(on_hit);

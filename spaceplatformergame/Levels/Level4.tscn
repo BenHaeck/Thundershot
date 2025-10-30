@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://d38yg6x1mhbqd"]
+[gd_scene load_steps=14 format=4 uid="uid://d38yg6x1mhbqd"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_sqxcn"]
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="2_7d10r"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="2_ltm5p"]
 [ext_resource type="Script" path="res://Scripts/Conduit.gd" id="2_m03sl"]
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="3_4bg4p"]
+[ext_resource type="PackedScene" uid="uid://cd6tbpkq2k35k" path="res://Prefabs/OneWayPlatform.tscn" id="3_07uw1"]
 [ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="4_n3af8"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="7_42x36"]
 [ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="7_di8sd"]
@@ -27,6 +28,10 @@ offset_left = -40.0
 offset_top = -384.0
 offset_right = 476.0
 offset_bottom = 148.0
+
+[node name="OneWayPlatform" parent="." instance=ExtResource("3_07uw1")]
+position = Vector2(60, -252)
+scale = Vector2(1.5, 1)
 
 [node name="Conduit" type="Node2D" parent="."]
 position = Vector2(112, -24)
