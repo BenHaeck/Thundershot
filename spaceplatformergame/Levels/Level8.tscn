@@ -165,3 +165,10 @@ position = Vector2(-40, -8)
 level_path = "res://Levels/Level7.tscn"
 starting_point = ">"
 door_name = "<"
+
+[node name="Door2" parent="." instance=ExtResource("7_xeq4i")]
+position = Vector2(200, -232)
+scale = Vector2(-1, 1)
+level_path = "res://Levels/Level9.tscn"
+starting_point = "<"
+door_name = ">"
