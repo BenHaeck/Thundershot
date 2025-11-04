@@ -131,7 +131,8 @@ position = Vector2(236, -304)
 charge_time = 5.0
 
 [node name="ElectricalWire" parent="PowerCore" instance=ExtResource("7_di8sd")]
-points = PackedVector2Array(0, 0, 28, 48, 0, 0, 0, 0, 0, 0, 0, 0)
+points = PackedVector2Array(0, 0, 28, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+vert_num = 14
 
 [node name="MovingPlatform" parent="PowerCore" instance=ExtResource("2_7d10r")]
 position = Vector2(80, 44)
@@ -504,6 +505,10 @@ rotation = 1.57079
 [node name="Spikes79" parent="Spikes" instance=ExtResource("7_42x36")]
 position = Vector2(268, -284)
 rotation = 1.57079
+
+[node name="Spikes133" parent="Spikes" instance=ExtResource("7_42x36")]
+position = Vector2(252, -276)
+rotation = -1.57079
 
 [node name="Spikes80" parent="Spikes" instance=ExtResource("7_42x36")]
 position = Vector2(260, -260)

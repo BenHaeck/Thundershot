@@ -21,19 +21,21 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#sprite.self_modulate = Color.WHITE.lerp(hit_color, charge / charge_time)
+	
+	# charge as a scale between 0 and 1
 	var percent = (charge / charge_time)
 	
+	# light
 	light.scale = light_scale * percent;
-	
-	light.visible = charge > 0;
 	light.color.a = light_alpha * percent;
-	charge = maxf(charge - delta, 0);
+	light.visible = charge > 0;
 	
+	# meter and particle system
 	particleSystem.emitting = charge > 0;
-	#meter.visible = charge > 0;
-	
 	meter.set_value(percent)
 	
+	# decrement charge
+	charge = maxf(charge - delta, 0);
 	
 	
 

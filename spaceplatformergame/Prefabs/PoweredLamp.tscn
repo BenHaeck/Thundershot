@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0b75b4drogie"]
+
+[ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="1_r6llb"]
+[ext_resource type="Script" path="res://Scripts/PoweredAnimator.gd" id="2_tsubw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyyaj"]
+atlas = ExtResource("1_r6llb")
+region = Rect2(8, 80, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i38qc"]
+atlas = ExtResource("1_r6llb")
+region = Rect2(16, 80, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym6pl"]
+atlas = ExtResource("1_r6llb")
+region = Rect2(0, 80, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnp1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyyaj")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_i38qc")
+}],
+"loop": true,
+"name": &"Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym6pl")
+}],
+"loop": true,
+"name": &"Inactive",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = -5
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_pnp1p")
+animation = &"Active"
+frame_progress = 0.695795
+script = ExtResource("2_tsubw")

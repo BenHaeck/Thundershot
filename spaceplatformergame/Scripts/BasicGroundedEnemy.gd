@@ -69,8 +69,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			hitbox_node.process_mode = Node.PROCESS_MODE_INHERIT
 	if sees_player:
-		if !shocked:
-			dir = sign(player.global_position.x - global_position.x)
+		#if !shocked:
+		dir = sign(player.global_position.x - global_position.x)
 		#print(str(!ray.is_colliding()) + " " + str(is_on_wall()) + " " + str(blocked))
 		if blocked:
 			velocity.x = 0;
