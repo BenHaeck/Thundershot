@@ -107,7 +107,7 @@ position = Vector2(-104, 0)
 
 [node name="PowerCore2" parent="Conduit2" instance=ExtResource("3_xdilr")]
 position = Vector2(80, 56)
-charge_time = 3.0
+charge_time = 2.0
 
 [node name="Conduit3" type="Node2D" parent="."]
 position = Vector2(592, -160)
@@ -275,6 +275,9 @@ rotation = -1.57079
 [node name="Spikes33" parent="Spikes" instance=ExtResource("9_oir67")]
 position = Vector2(428, -28)
 rotation = -1.57079
+
+[node name="Spikes43" parent="Spikes" instance=ExtResource("9_oir67")]
+position = Vector2(436, -36)
 
 [node name="Spikes34" parent="Spikes" instance=ExtResource("9_oir67")]
 position = Vector2(428, -20)

@@ -12,6 +12,8 @@ extends Node2D
 var w = 0;
 
 func _ready() -> void:
+	if invert_activation:
+		w = 0.95;
 	line.points[1] = target_pos
 
 func _physics_process(delta: float) -> void:
