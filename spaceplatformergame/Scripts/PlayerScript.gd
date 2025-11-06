@@ -30,6 +30,9 @@ const COYOTE_TIME: float = 0.125;
 const SHOOT_BOUNCE:float = 35;
 const SHOOT_WALL_BOUNCE:float = 64*0.6;
 
+const MAX_CHARGE: float = 2;
+const CHARGE_RATE: float = 1.75;
+const CHARGE_RATE_AIR: float = 0.125;
 const SHOOT_DAMPEN: float = 0.25;
 const BULLET_SPEED: float = 250;
 const BULLET_OFFSET: float = 8;
@@ -46,6 +49,8 @@ var can_shoot = false;
 var jump_anti_queue = false;
 var current_shoot_recov:float = 0;
 var current_coyote_time:float = 0;
+
+var charge = MAX_CHARGE
 var jump_type = 0;
 
 var dead = false;
@@ -67,6 +72,7 @@ var facing_dir = 0;
 
 @onready var w_particles = $WalkParticles;
 @onready var jump_particles = $JumpParticles;
+@onready var meter = $Sprite/Meter
 
 @onready var gun_particle: PackedScene = load("res://Prefabs/GunParticle.tscn");
 
@@ -112,6 +118,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			jump_type = sign(get_wall_normal().x);
 		current_coyote_time = COYOTE_TIME;
+		charge = minf(charge + delta * CHARGE_RATE, MAX_CHARGE)
+	else:
+		charge = minf(charge + delta * CHARGE_RATE_AIR, MAX_CHARGE)
+		
+	meter.set_value(charge / MAX_CHARGE);
 	
 	if current_state.update_facing_dir:
 		set_facing_dir(dir.x);
@@ -154,7 +165,8 @@ func _physics_process(delta: float) -> void:
 	if current_state.jump_cancel and !jump_pressed:
 		velocity.y = maxf(velocity.y, -JUMP_CANCEL_LOCK);
 		
-	if current_state.can_shoot and can_shoot and Input.is_action_pressed("PlFire") and current_shoot_recov <= 0 and LevelTracking.player_has_gun:
+	if current_state.can_shoot and charge > 1 and Input.is_action_pressed("PlFire") and current_shoot_recov <= 0 and LevelTracking.player_has_gun:
+		charge -=1;
 		fire()
 
 	

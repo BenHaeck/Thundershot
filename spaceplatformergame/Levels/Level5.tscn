@@ -64,7 +64,8 @@ charge_time = 3.0
 
 [node name="MovingPlatform3" parent="Conduit2" instance=ExtResource("7_vgp56")]
 position = Vector2(-20, 72)
-speed = 1.0
+speed = 2.0
+acceleration = 2
 invert_activation = true
 
 [node name="Target" type="Node2D" parent="Conduit2/MovingPlatform3"]
@@ -88,14 +89,16 @@ points = PackedVector2Array(0, 0, -64, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="MovingPlatform" parent="Conduit" instance=ExtResource("7_vgp56")]
 position = Vector2(-40, 28)
-speed = 1.0
+speed = 2.0
+acceleration = 2
 
 [node name="Target" type="Node2D" parent="Conduit/MovingPlatform"]
 position = Vector2(0, -88)
 
 [node name="MovingPlatform2" parent="Conduit" instance=ExtResource("7_vgp56")]
 position = Vector2(24, 4)
-speed = 1.0
+speed = 2.0
+acceleration = 2
 
 [node name="Spikes19" parent="Conduit/MovingPlatform2/StaticBody2D" index="6" instance=ExtResource("5_h1ed2")]
 position = Vector2(12, -8)
@@ -583,6 +586,7 @@ sag_amount = 12
 
 [node name="MovingPlatform" parent="Conduit3" instance=ExtResource("7_vgp56")]
 position = Vector2(124, 0)
+acceleration = 4
 
 [node name="Spikes" parent="Conduit3/MovingPlatform/StaticBody2D" index="6" instance=ExtResource("5_h1ed2")]
 position = Vector2(-4, 16)
@@ -603,6 +607,7 @@ position = Vector2(0, -76)
 
 [node name="MovingPlatform2" parent="Conduit3" instance=ExtResource("7_vgp56")]
 position = Vector2(156, 32)
+acceleration = 4
 
 [node name="Spikes" parent="Conduit3/MovingPlatform2/StaticBody2D" index="6" instance=ExtResource("5_h1ed2")]
 position = Vector2(-4, 16)

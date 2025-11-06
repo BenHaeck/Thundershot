@@ -39,7 +39,7 @@ script = ExtResource("2_m03sl")
 
 [node name="MovingPlatform" parent="Conduit" instance=ExtResource("2_7d10r")]
 position = Vector2(-20, 36)
-speed = 1.0
+speed = 2.0
 
 [node name="Spikes" parent="Conduit/MovingPlatform/StaticBody2D" index="0" instance=ExtResource("7_42x36")]
 position = Vector2(12, -8)
@@ -136,6 +136,7 @@ vert_num = 14
 
 [node name="MovingPlatform" parent="PowerCore" instance=ExtResource("2_7d10r")]
 position = Vector2(80, 44)
+acceleration = 3
 invert_activation = true
 
 [node name="Spikes" parent="PowerCore/MovingPlatform/StaticBody2D" index="6" instance=ExtResource("7_42x36")]
@@ -191,7 +192,7 @@ points = PackedVector2Array(0, 0, -16, 36, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="MovingPlatform4" parent="Conduit2" instance=ExtResource("2_7d10r")]
 position = Vector2(0, -36)
-speed = 1.0
+speed = 2.0
 
 [node name="Spikes" parent="Conduit2/MovingPlatform4/StaticBody2D" index="0" instance=ExtResource("7_42x36")]
 position = Vector2(12, -8)
@@ -236,7 +237,7 @@ position = Vector2(0, -76)
 
 [node name="MovingPlatform5" parent="Conduit2" instance=ExtResource("2_7d10r")]
 position = Vector2(0, 104)
-speed = 1.0
+speed = 2.0
 
 [node name="Spikes" parent="Conduit2/MovingPlatform5/StaticBody2D" index="0" instance=ExtResource("7_42x36")]
 position = Vector2(12, -8)

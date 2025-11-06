@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0waw4wwe468w"]
+[gd_scene load_steps=19 format=3 uid="uid://b0waw4wwe468w"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_v5o81"]
 [ext_resource type="PackedScene" uid="uid://7yh5wgcn66k7" path="res://Prefabs/Bullet.tscn" id="2_rhtpy"]
 [ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="3_0of2s"]
 [ext_resource type="Texture2D" uid="uid://c1enhtp45bltj" path="res://Images/CharacterSheet.png" id="3_atkhf"]
 [ext_resource type="Script" path="res://Scripts/HitListener.gd" id="4_hkhn1"]
+[ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="5_61csd"]
 [ext_resource type="Script" path="res://Scripts/PlayerState.gd" id="5_w3w3d"]
+[ext_resource type="Script" path="res://Scripts/Meter.gd" id="6_u07b4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epr8j"]
 atlas = ExtResource("3_atkhf")
@@ -138,6 +140,23 @@ position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_pm4i6")
 animation = &"Running"
 
+[node name="Meter" type="Sprite2D" parent="Sprite"]
+z_index = 40
+position = Vector2(0, -9)
+texture = ExtResource("5_61csd")
+region_enabled = true
+region_rect = Rect2(80, 36, 12, 4)
+script = ExtResource("6_u07b4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite/Meter"]
+self_modulate = Color(0.34902, 0.972549, 1, 1)
+z_index = -1
+position = Vector2(0, -1)
+scale = Vector2(2.5, 1)
+texture = ExtResource("5_61csd")
+region_enabled = true
+region_rect = Rect2(80, 34, 4, 2)
+
 [node name="JumpParticles" type="CPUParticles2D" parent="."]
 visible = false
 texture_filter = 1
@@ -180,5 +199,4 @@ jump_cancel = true
 [node name="Recoil" type="Node" parent="States"]
 script = ExtResource("5_w3w3d")
 coyote_enabled = false
-can_shoot = false
 update_facing_dir = false

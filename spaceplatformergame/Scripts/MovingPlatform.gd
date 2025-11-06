@@ -5,9 +5,13 @@ extends Node2D
 @onready var target_pos: Vector2 = $Target.position
 @onready var line = $Line2D
 
-@export var speed: float = 1;
+@export var speed: float = 2;
+
+@export var acceleration = 1;
 
 @export var invert_activation: bool = false;
+
+var current_speed = 0
 
 var w = 0;
 
@@ -22,7 +26,10 @@ func _physics_process(delta: float) -> void:
 		d = 1;
 		
 	if float(d+1)*0.5 != w:
-		w += speed * d * delta;
+		current_speed += acceleration * d * delta
+		current_speed = clampf(current_speed, -speed, speed)
+		if current_speed * d < 0: current_speed = 0;
+		w += current_speed * delta;
 		w = clampf(w, 0, 1);
 		
 		var n_pos = Vector2.ZERO.lerp(target_pos, smoothstep(0, 1, w));
