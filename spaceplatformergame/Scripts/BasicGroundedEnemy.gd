@@ -8,9 +8,9 @@ extends CharacterBody2D
 
 
 
-@export var charge_speed = 0
-@export var speed = 90
-@export var acceleration = 120*1.5;
+@export var charge_speed:float = 0
+@export var speed:float = 90
+@export var acceleration:float = 120*1.5;
 @export var animation_name: String = "default"
 @export var hit_animation_name: String = "electrified"
 
@@ -18,7 +18,7 @@ extends CharacterBody2D
 @onready var hitbox_node: Hitbox = get_node_or_null(hitbox)
 
 var charge = 0;
-@export var charge_time = 2;
+@export var charge_time:float = 2;
 @export var disable_hitbox_if_charged = false;
 
 @onready var player = get_tree().root.find_child("Player", true, false)

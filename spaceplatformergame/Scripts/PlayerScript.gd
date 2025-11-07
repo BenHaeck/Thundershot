@@ -30,9 +30,9 @@ const COYOTE_TIME: float = 0.125;
 const SHOOT_BOUNCE:float = 35;
 const SHOOT_WALL_BOUNCE:float = 64*0.6;
 
-const MAX_CHARGE: float = 2;
-const CHARGE_RATE: float = 1.75;
-const CHARGE_RATE_AIR: float = 0.125;
+const MAX_CHARGE: float = 1.6;
+const CHARGE_RATE: float = 1.4;
+const CHARGE_RATE_AIR: float = 0.5;
 const SHOOT_DAMPEN: float = 0.25;
 const BULLET_SPEED: float = 250;
 const BULLET_OFFSET: float = 8;
@@ -184,7 +184,7 @@ func set_facing_dir(dirX: float):
 	pass
 	
 func fire():
-	
+	sprite.play("Gunshot")
 	var b = bullet.instantiate();
 	var fire_dir = (get_global_mouse_position() - global_position).normalized()
 	b.global_position = global_position + fire_dir * BULLET_OFFSET;
@@ -226,7 +226,7 @@ func update_state(dir):
 			sprite.animation = "WallSlide";
 			return;
 		if !can_shoot:
-			sprite.animation = "Gunshot";
+			#sprite.animation = "Gunshot";
 			return;
 		if velocity.y < -RF_TRANSITION_VELOCITY:
 			sprite.animation = "Rising"

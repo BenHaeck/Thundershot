@@ -430,6 +430,11 @@ charge_time = 50.0
 position = Vector2(212, -124)
 script = ExtResource("5_rg52r")
 
+[node name="ElectricalWire" parent="Conduit5" instance=ExtResource("6_0gou1")]
+position = Vector2(-52, -48)
+points = PackedVector2Array(0, 0, 80, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+sag_amount = 52
+
 [node name="PowerCore" parent="Conduit5" instance=ExtResource("7_8mirc")]
 position = Vector2(-52, -52)
 charge_time = 3.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0waw4wwe468w"]
+[gd_scene load_steps=20 format=3 uid="uid://b0waw4wwe468w"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_v5o81"]
 [ext_resource type="PackedScene" uid="uid://7yh5wgcn66k7" path="res://Prefabs/Bullet.tscn" id="2_rhtpy"]
@@ -13,9 +13,13 @@
 atlas = ExtResource("3_atkhf")
 region = Rect2(24, 16, 12, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vahet"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_war74"]
 atlas = ExtResource("3_atkhf")
 region = Rect2(12, 32, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdc2q"]
+atlas = ExtResource("3_atkhf")
+region = Rect2(24, 32, 12, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ey7tw"]
 atlas = ExtResource("3_atkhf")
@@ -52,10 +56,13 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_war74")
+}, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vahet")
+"texture": SubResource("AtlasTexture_hdc2q")
 }],
-"loop": true,
+"loop": false,
 "name": &"Gunshot",
 "speed": 5.0
 }, {
@@ -138,7 +145,9 @@ color = Color(0.625, 0.625, 0.625, 1)
 texture_filter = 1
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_pm4i6")
-animation = &"Running"
+animation = &"Gunshot"
+frame = 1
+frame_progress = 1.0
 
 [node name="Meter" type="Sprite2D" parent="Sprite"]
 z_index = 40
