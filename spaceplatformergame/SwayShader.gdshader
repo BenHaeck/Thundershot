@@ -9,7 +9,7 @@ void vertex() {
 	//vec2 processed_vert = VERTEX - 0.5;
 	vec2 vert_sway_score = VERTEX - offset;
 	VERTEX += sway_amount*(vert_sway_score).yx * vec2(cos(TIME*sway_speed));
-	
+
 }
 
 void fragment() {

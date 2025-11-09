@@ -7,7 +7,7 @@ extends Node2D
 
 @export var speed: float = 2;
 
-@export var acceleration = 1;
+@export var acceleration: float = 1;
 
 @export var invert_activation: bool = false;
 
