@@ -215,25 +215,28 @@ func fire():
 	pass
 
 func update_state(dir):
+	var animation = "";
 	if is_on_floor():
 		if dir.x != 0:
 			#if sprite.animation != "Running":
-			sprite.animation = "Running";
+			animation = "Running";
 		else:
-			sprite.animation = "Idle";
+			animation = "Idle";
 	else:
 		if is_on_wall():
-			sprite.animation = "WallSlide";
-			return;
-		if !can_shoot:
-			#sprite.animation = "Gunshot";
-			return;
-		if velocity.y < -RF_TRANSITION_VELOCITY:
-			sprite.animation = "Rising"
+			animation = "WallSlide";
+		
+		elif !can_shoot:
+			animation = "Gunshot";
+			pass
+		elif velocity.y < -RF_TRANSITION_VELOCITY:
+			animation = "Rising"
 		elif velocity.y > RF_TRANSITION_VELOCITY:
-			sprite.animation = "Falling";
+			animation = "Falling";
 		else:
-			sprite.animation = "Midair";
+			animation = "Midair";
+	if animation != sprite.animation:
+		sprite.play(animation);
 	pass
 	
 func update_velocity(dir, speed_delta, delta):

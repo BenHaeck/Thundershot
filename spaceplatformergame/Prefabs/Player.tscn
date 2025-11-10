@@ -146,8 +146,6 @@ texture_filter = 1
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_pm4i6")
 animation = &"Gunshot"
-frame = 1
-frame_progress = 1.0
 
 [node name="Meter" type="Sprite2D" parent="Sprite"]
 z_index = 40

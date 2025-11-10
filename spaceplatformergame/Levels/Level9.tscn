@@ -49,7 +49,7 @@ door_name = "<"
 [node name="Door2" parent="." instance=ExtResource("4_gm8f3")]
 position = Vector2(952, 72)
 scale = Vector2(-1, 1)
-level_path = "res://Levels/Level8.tscn"
+level_path = "res://Levels/Level10.tscn"
 starting_point = "<"
 door_name = ">"
 
