@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/HitListener.gd" id="3_xwco7"]
 [ext_resource type="Texture2D" uid="uid://bofx1mdkoahhp" path="res://Images/Splotches.png" id="5_58qks"]
 [ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="6_i4q0k"]
-[ext_resource type="Script" path="res://Scripts/Meter.gd" id="7_chh63"]
+[ext_resource type="PackedScene" uid="uid://hk31j27w6jqk" path="res://Prefabs/PowerMeter.tscn" id="7_5femb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oqup"]
 size = Vector2(12, 16)
@@ -103,20 +103,6 @@ scale = Vector2(5, 5)
 color = Color(0.34902, 0.972549, 1, 0.462745)
 texture = ExtResource("5_58qks")
 
-[node name="Meter" type="Sprite2D" parent="."]
-z_index = 40
+[node name="Meter" parent="." instance=ExtResource("7_5femb")]
 position = Vector2(9, 0)
 rotation = 1.57079
-texture = ExtResource("2_lj2cl")
-region_enabled = true
-region_rect = Rect2(80, 36, 12, 4)
-script = ExtResource("7_chh63")
-
-[node name="Sprite2D" type="Sprite2D" parent="Meter"]
-self_modulate = Color(0.34902, 0.972549, 1, 1)
-z_index = -1
-position = Vector2(0, -1)
-scale = Vector2(3, 1)
-texture = ExtResource("2_lj2cl")
-region_enabled = true
-region_rect = Rect2(80, 34, 4, 2)

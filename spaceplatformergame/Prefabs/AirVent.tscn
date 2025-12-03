@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://dobpbeifo2mg2"]
+
+[ext_resource type="Script" path="res://Scripts/AirVent.gd" id="1_2l2a5"]
+[ext_resource type="Texture2D" uid="uid://xad1v0i6upfh" path="res://Images/HashParticle.png" id="2_pxux6"]
+[ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="3_gxv7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucywm"]
+atlas = ExtResource("3_gxv7p")
+region = Rect2(0, 8, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj6xp"]
+atlas = ExtResource("3_gxv7p")
+region = Rect2(16, 8, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuw72"]
+atlas = ExtResource("3_gxv7p")
+region = Rect2(32, 8, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fumn5"]
+atlas = ExtResource("3_gxv7p")
+region = Rect2(32, 8, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yj5h"]
+atlas = ExtResource("3_gxv7p")
+region = Rect2(16, 8, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uenf"]
+atlas = ExtResource("3_gxv7p")
+region = Rect2(0, 8, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehgfs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucywm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj6xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuw72")
+}],
+"loop": false,
+"name": &"Closing",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fumn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yj5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uenf")
+}],
+"loop": false,
+"name": &"Opening",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tue6c"]
+radius = 32.0
+height = 96.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijgo0"]
+size = Vector2(16, 8)
+
+[node name="AirVent" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_2l2a5")
+invert_active = true
+launch_strength = 158.0
+
+[node name="ParticleBurst" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+lifetime_randomness = 0.95
+texture = ExtResource("2_pxux6")
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+color = Color(1, 1, 1, 0.541176)
+
+[node name="ParticleIdle" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 5
+lifetime = 0.5
+texture = ExtResource("2_pxux6")
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+color = Color(1, 1, 1, 0.541176)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ehgfs")
+animation = &"Closing"
+
+[node name="LaunchArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 118
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaunchArea"]
+position = Vector2(0, -48)
+shape = SubResource("CapsuleShape2D_tue6c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ijgo0")

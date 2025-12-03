@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="1_763dy"]
 [ext_resource type="Script" path="res://Scripts/DisapearingBox.gd" id="1_ak8ll"]
 [ext_resource type="Script" path="res://Scripts/HitListener.gd" id="2_43t7s"]
-[ext_resource type="Shader" path="res://SwayShader.gdshader" id="4_n2p4w"]
+[ext_resource type="Shader" path="res://Materials/SwayShader.gdshader" id="4_n2p4w"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="4_rhafw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4akit"]

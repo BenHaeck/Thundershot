@@ -9,5 +9,5 @@ texture_filter = 1
 position = Vector2(3, 3)
 texture = ExtResource("1_oul7e")
 region_enabled = true
-region_rect = Rect2(56, 0, 8, 8)
+region_rect = Rect2(88, 0, 8, 8)
 script = ExtResource("2_f7oy6")

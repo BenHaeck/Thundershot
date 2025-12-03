@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://7yh5wgcn66k7"]
 
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="1_h3spa"]
-[ext_resource type="Shader" path="res://SwayShader.gdshader" id="2_a7kjo"]
+[ext_resource type="Shader" path="res://Materials/SwayShader.gdshader" id="2_a7kjo"]
 [ext_resource type="Texture2D" uid="uid://c1enhtp45bltj" path="res://Images/CharacterSheet.png" id="2_dendx"]
 [ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="4_mdhql"]
 [ext_resource type="Script" path="res://Scripts/ParticleHelper.gd" id="5_cl8io"]

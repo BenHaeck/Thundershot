@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="1_5epl1"]
 [ext_resource type="Script" path="res://Scripts/LaserLogic.gd" id="1_e0nwg"]
-[ext_resource type="Material" uid="uid://djwanamoeas15" path="res://LightEscShader.tres" id="2_310sv"]
+[ext_resource type="Material" uid="uid://djwanamoeas15" path="res://Materials/LightEscShader.tres" id="2_310sv"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_emapg"]
 [ext_resource type="Script" path="res://Scripts/AutoPlay.gd" id="3_scw57"]
 [ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="5_yi0me"]

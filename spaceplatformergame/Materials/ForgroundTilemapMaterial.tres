@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cth5745jj1tgn"]
+
+[ext_resource type="Shader" path="res://Materials/Forground.gdshader" id="1_joy7o"]
+
+[resource]
+shader = ExtResource("1_joy7o")
+shader_parameter/visible_point = Vector2(32, 32)
+shader_parameter/visible_radius = 48.0

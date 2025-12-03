@@ -2,12 +2,12 @@ extends PowerSource
 
 class_name Conduit
 
-var power_sources: Array[Generator] = [];
+var power_sources: Array[PowerSource] = [];
 var active = false;
 func _ready() -> void:
 	for i in range(0, get_child_count()):
 		var n = get_child(i);
-		if is_instance_of(n, Generator):
+		if is_instance_of(n, PowerSource):
 			power_sources.append(n);
 	pass
 	

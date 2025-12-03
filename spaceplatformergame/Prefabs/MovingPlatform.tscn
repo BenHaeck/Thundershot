@@ -24,20 +24,20 @@ region_rect = Rect2(16, 24, 16, 24)
 [node name="Gear" parent="StaticBody2D" instance=ExtResource("3_j2bfp")]
 self_modulate = Color(0.550781, 0.550781, 0.550781, 1)
 position = Vector2(-3, 4)
-region_rect = Rect2(56, 8, 8, 8)
+region_rect = Rect2(88, 8, 8, 8)
 rps = -0.25
 
 [node name="Gear3" parent="StaticBody2D" instance=ExtResource("3_j2bfp")]
 self_modulate = Color(0.550781, 0.550781, 0.550781, 1)
 position = Vector2(-3, -6)
-region_rect = Rect2(56, 8, 8, 8)
+region_rect = Rect2(88, 8, 8, 8)
 rps = -0.25
 
 [node name="Gear2" parent="StaticBody2D" instance=ExtResource("3_j2bfp")]
 self_modulate = Color(0.550781, 0.550781, 0.550781, 1)
 position = Vector2(2, -1)
 rotation = 0.785398
-region_rect = Rect2(56, 8, 8, 8)
+region_rect = Rect2(88, 8, 8, 8)
 rps = 0.25
 
 [node name="Icon" type="Sprite2D" parent="StaticBody2D"]

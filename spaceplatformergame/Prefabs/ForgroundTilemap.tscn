@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://iisim5g4mr"]
+[gd_scene load_steps=5 format=3 uid="uid://dnxltxbsbkjo2"]
 
-[ext_resource type="Texture2D" uid="uid://duohrv3ty1tw0" path="res://Images/Tileset.png" id="1_k4ylb"]
+[ext_resource type="Material" uid="uid://cth5745jj1tgn" path="res://Materials/ForgroundTilemapMaterial.tres" id="1_tob4r"]
+[ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="1_yhd83"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hg4tu"]
-texture = ExtResource("1_k4ylb")
+texture = ExtResource("1_yhd83")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, -4, 4, 4, 4, 4, -4)
@@ -29,37 +30,16 @@ texture_region_size = Vector2i(8, 8)
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, -4, 4, 4, 4, 4, -4)
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, -4, 4, 4, 4, 4, -4)
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 0, -4, 0)
-5:2/0 = 0
-5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 0, -4, 0)
-6:2/0 = 0
-6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-7:0/0 = 0
-7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-7:1/0 = 0
-7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-7:2/0 = 0
-7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-8:2/0 = 0
-8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-8:1/0 = 0
-8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-8:0/0 = 0
-8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -2, 4, -2, 4, 4, -4, 4)
 
 [sub_resource type="TileSet" id="TileSet_ildq4"]
 tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hg4tu")
 
-[node name="BetterTilemap" type="TileMapLayer"]
-z_index = 20
+[node name="ForgroundTilemap" type="TileMapLayer"]
+self_modulate = Color(0.933594, 0.933594, 0.933594, 1)
+z_index = 25
 texture_filter = 3
+material = ExtResource("1_tob4r")
 tile_set = SubResource("TileSet_ildq4")
+collision_enabled = false

@@ -3,10 +3,12 @@ extends CharacterBody2D
 class_name Player
 
 const MOVE_SPEED:float = 150/2;
-const SPEED_DELTA: float = 590/2;
+const SPEED_DELTA: float = 570/2;
 const SLOW_DELTA: float = 700/2;
 const SLOW2_DELTA: float = 1500/2;
 const AIR_SPEED_DELTA_MULT: float = 0.41;
+
+const LAND_VEL_MULT: float = 0.65;
 
 #const GRAVITY: float = 600/4;
 const GRAVITY: float = 630/4;
@@ -21,7 +23,7 @@ const WALL_SLIDE_FRICTION: float = 540;
 const WALL_JUMP_IMPULSE: Vector2 = Vector2(64, 94);
 
 const JUMP_HEIGHT: float = 24;
-const JUMP_CANCEL_LOCK: float = 28;
+const JUMP_CANCEL_LOCK: float = 31;
 const JUMP_IMPULSE: float = sqrt(2*JUMP_HEIGHT*GRAVITY);
 
 const COYOTE_TIME: float = 0.125;
@@ -31,7 +33,7 @@ const SHOOT_BOUNCE:float = 35;
 const SHOOT_WALL_BOUNCE:float = 64*0.6;
 
 const MAX_CHARGE: float = 1.6;
-const CHARGE_RATE: float = 1.4;
+const CHARGE_RATE: float = 1.2;
 const CHARGE_RATE_AIR: float = 0.5;
 const SHOOT_DAMPEN: float = 0.25;
 const BULLET_SPEED: float = 250;
@@ -75,6 +77,8 @@ var facing_dir = 0;
 @onready var meter = $Sprite/Meter
 
 @onready var gun_particle: PackedScene = load("res://Prefabs/GunParticle.tscn");
+@onready var forground_shader: ShaderMaterial = load("res://Materials/ForgroundTilemapMaterial.tres")
+var allow_jump_cancel = true;
 
 func _ready() -> void:
 	$HitListener.hit.connect(on_hit)
@@ -82,9 +86,11 @@ func _ready() -> void:
 	
 	if LevelTracking.starting_location == " ":
 		LevelTracking.player_has_gun = has_lightning_gun;
+	get_tree().root.find_child("ForgroundTilemap", true, false);
 	pass
 	
 func _process(delta: float) -> void:
+	forground_shader.set_shader_parameter("visible_point", global_position);
 	if dead:
 		get_tree().reload_current_scene()
 	pass
@@ -104,6 +110,8 @@ func _physics_process(delta: float) -> void:
 	var use_sd = SPEED_DELTA;
 	
 	var standing = is_on_floor();
+	allow_jump_cancel = allow_jump_cancel or jump_pressed
+	allow_jump_cancel = allow_jump_cancel and not standing
 	
 	if dir.x == 0:
 		use_sd = SLOW_DELTA;
@@ -129,6 +137,8 @@ func _physics_process(delta: float) -> void:
 	
 	# state stuff
 	if standing:
+		if current_state == arial_state:
+			velocity.x *= LAND_VEL_MULT;
 		current_state = grounded_state;
 		can_shoot = true;
 	elif is_on_wall():
@@ -162,8 +172,9 @@ func _physics_process(delta: float) -> void:
 		jump_anti_queue = true;
 		current_coyote_time = 0;
 		
-	if current_state.jump_cancel and !jump_pressed:
+	if current_state.jump_cancel and !jump_pressed and allow_jump_cancel:
 		velocity.y = maxf(velocity.y, -JUMP_CANCEL_LOCK);
+		allow_jump_cancel = false
 		
 	if current_state.can_shoot and charge > 1 and Input.is_action_pressed("PlFire") and current_shoot_recov <= 0 and LevelTracking.player_has_gun:
 		charge -=1;
@@ -195,6 +206,7 @@ func fire():
 	#else:
 	#	velocity.y = -SHOOT_BOUNCE;
 	
+	#velocity.y = minf(velocity.y, -SHOOT_BOUNCE);
 	velocity.y = -SHOOT_BOUNCE;
 	get_parent().add_child(b);
 	

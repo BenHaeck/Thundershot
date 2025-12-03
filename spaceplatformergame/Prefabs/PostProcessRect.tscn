@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://nu3rnmfgm8l"]
 
-[ext_resource type="Material" uid="uid://c76l361ikx028" path="res://UndergroundPostProcMaterial.tres" id="1_igmga"]
+[ext_resource type="Material" uid="uid://c76l361ikx028" path="res://Materials/UndergroundPostProcMaterial.tres" id="1_igmga"]
 
 [node name="ColorRect" type="ColorRect"]
 z_index = 1000
