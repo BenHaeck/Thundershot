@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://mt6ib7ce2pnc"]
+
+[ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="1_ffh5f"]
+[ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_co76m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv8rt"]
+size = Vector2(24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dva0c"]
+atlas = ExtResource("2_co76m")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlyjl"]
+atlas = ExtResource("2_co76m")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdj4b"]
+atlas = ExtResource("2_co76m")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyi3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dva0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlyjl")
+}],
+"loop": true,
+"name": &"Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdj4b")
+}],
+"loop": true,
+"name": &"Inactive",
+"speed": 5.0
+}]
+
+[node name="StartingPoint" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_ffh5f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_vv8rt")
+
+[node name="ChargeSprite" type="AnimatedSprite2D" parent="."]
+z_index = -5
+texture_filter = 1
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_gyi3h")
+animation = &"Inactive"
+frame_progress = 0.883561

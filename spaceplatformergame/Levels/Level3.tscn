@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://d0gucmip0migd"]
+[gd_scene load_steps=15 format=4 uid="uid://d0gucmip0migd"]
 
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="1_ipyb8"]
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="2_2uwt0"]
@@ -12,17 +12,18 @@
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="8_d7774"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="9_126hc"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="10_bp3nl"]
+[ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="12_fjlef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtwqg"]
 size = Vector2(12, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ame5n"]
-size = Vector2(40, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_777q4"]
-size = Vector2(40, 24)
-
 [node name="Level2" type="Node2D"]
+
+[node name="ColorRect" parent="." instance=ExtResource("10_bp3nl")]
+offset_left = -48.0
+offset_top = -88.0
+offset_right = 632.0
+offset_bottom = 360.0
 
 [node name="Camera2D" parent="." instance=ExtResource("1_ipyb8")]
 position = Vector2(120, 264)
@@ -99,26 +100,12 @@ point_name = "<"
 position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_wtwqg")
 
-[node name="StartingPoint2" type="Area2D" parent="."]
-position = Vector2(176, 56)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("8_d7774")
+[node name="StartingPoint2" parent="." instance=ExtResource("12_fjlef")]
+position = Vector2(184, 60)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint2"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_ame5n")
-
-[node name="StartingPoint3" type="Area2D" parent="."]
-position = Vector2(452, -16)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("8_d7774")
+[node name="StartingPoint3" parent="." instance=ExtResource("12_fjlef")]
+position = Vector2(444, -12)
 point_name = "2"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint3"]
-position = Vector2(-8, -4)
-shape = SubResource("RectangleShape2D_777q4")
 
 [node name="SpikeHolder" type="Node2D" parent="."]
 
@@ -255,9 +242,3 @@ position = Vector2(556, 180)
 
 [node name="Spikes32" parent="SpikeHolder" instance=ExtResource("9_126hc")]
 position = Vector2(540, 84)
-
-[node name="ColorRect" parent="." instance=ExtResource("10_bp3nl")]
-offset_left = -48.0
-offset_top = -88.0
-offset_right = 632.0
-offset_bottom = 360.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bvs4o58w0apny"]
+[gd_scene load_steps=10 format=4 uid="uid://bvs4o58w0apny"]
 
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_8shi2"]
 [ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="1_fo8mh"]
@@ -7,11 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://daofs7q0dqiry" path="res://Prefabs/TrashEater.tscn" id="4_pa4yp"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="5_cv557"]
 [ext_resource type="PackedScene" uid="uid://v4vrit5x03t" path="res://Prefabs/CloseBackgroundTilemap.tscn" id="5_x8l1p"]
-[ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="6_eha24"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="7_xeq4i"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5vxq"]
-size = Vector2(16, 20)
+[ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="8_4e51h"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -155,14 +152,8 @@ rotation = -4.71238
 position = Vector2(132, -308)
 rotation = -6.28318
 
-[node name="StartingPoint" type="Area2D" parent="."]
-position = Vector2(160, -120)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("6_eha24")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint"]
-shape = SubResource("RectangleShape2D_b5vxq")
+[node name="StartingPoint" parent="." instance=ExtResource("8_4e51h")]
+position = Vector2(160, -116)
 
 [node name="Door" parent="." instance=ExtResource("7_xeq4i")]
 position = Vector2(-40, -8)

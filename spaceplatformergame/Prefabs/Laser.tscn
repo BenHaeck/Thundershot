@@ -46,7 +46,7 @@ position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_iwjoy")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(256, 0)
+target_position = Vector2(384, 0)
 
 [node name="LaserHB" type="Node2D" parent="."]
 scale = Vector2(10, 1)

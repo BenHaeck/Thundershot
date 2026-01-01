@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bp1c4i28xh0rl"]
+[gd_scene load_steps=17 format=4 uid="uid://bp1c4i28xh0rl"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_2nc6b"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_omj7v"]
@@ -14,13 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://ch8vifdii05il" path="res://Prefabs/Laser.tscn" id="7_2qa80"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="7_8mirc"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="9_ufuey"]
-[ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="10_ajrjp"]
+[ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="15_wn44c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2a7n"]
 size = Vector2(304, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrwxc"]
-size = Vector2(20, 18)
 
 [node name="Level7" type="Node2D"]
 
@@ -465,37 +462,16 @@ speed = 0.5
 [node name="Target" type="Node2D" parent="Conduit6/MovingPlatform"]
 position = Vector2(0, 44)
 
-[node name="StartingPoint" type="Area2D" parent="."]
-position = Vector2(344, -64)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("10_ajrjp")
+[node name="StartingPoint" parent="." instance=ExtResource("15_wn44c")]
+position = Vector2(340, -60)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_yrwxc")
-
-[node name="StartingPoint2" type="Area2D" parent="."]
-position = Vector2(264, -120)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("10_ajrjp")
+[node name="StartingPoint2" parent="." instance=ExtResource("15_wn44c")]
+position = Vector2(268, -116)
 point_name = "2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint2"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_yrwxc")
-
-[node name="StartingPoint3" type="Area2D" parent="."]
-position = Vector2(212, -268)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("10_ajrjp")
+[node name="StartingPoint3" parent="." instance=ExtResource("15_wn44c")]
+position = Vector2(280, -292)
 point_name = "3"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint3"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_yrwxc")
 
 [node name="Laser" parent="." instance=ExtResource("7_2qa80")]
 position = Vector2(428, -76)

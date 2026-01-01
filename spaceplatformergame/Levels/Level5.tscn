@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://742ih3638s45"]
+[gd_scene load_steps=16 format=4 uid="uid://742ih3638s45"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_akgwp"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_lnaw3"]
@@ -9,14 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://v4vrit5x03t" path="res://Prefabs/CloseBackgroundTilemap.tscn" id="4_kmigl"]
 [ext_resource type="Script" path="res://Scripts/Conduit.gd" id="4_m4ntp"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="5_h1ed2"]
-[ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="6_vv485"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="6_w3sox"]
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="7_vgp56"]
 [ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="9_1uskf"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="10_u1aem"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7a6f"]
-size = Vector2(28, 20)
+[ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="13_iwsvr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sujtv"]
 size = Vector2(252, 8)
@@ -527,37 +524,16 @@ rotation = -1.57079
 position = Vector2(180, -112)
 rotation = -1.57079
 
-[node name="StartingPoint" type="Area2D" parent="."]
-position = Vector2(200, -156)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("6_vv485")
+[node name="StartingPoint" parent="." instance=ExtResource("13_iwsvr")]
+position = Vector2(200, -148)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint"]
-position = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_y7a6f")
-
-[node name="StartingPoint2" type="Area2D" parent="."]
-position = Vector2(292, -452)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("6_vv485")
+[node name="StartingPoint2" parent="." instance=ExtResource("13_iwsvr")]
+position = Vector2(292, -444)
 point_name = "2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint2"]
-position = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_y7a6f")
-
-[node name="StartingPoint3" type="Area2D" parent="."]
-position = Vector2(616, -468)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("6_vv485")
-point_name = "3 "
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint3"]
-position = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_y7a6f")
+[node name="StartingPoint3" parent="." instance=ExtResource("13_iwsvr")]
+position = Vector2(620, -460)
+point_name = "3"
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(400, 24)

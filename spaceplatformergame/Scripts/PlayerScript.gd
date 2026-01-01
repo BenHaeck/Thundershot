@@ -13,6 +13,7 @@ const LAND_VEL_MULT: float = 0.65;
 #const GRAVITY: float = 600/4;
 const GRAVITY: float = 630/4;
 const FALL_GRAVITY: float = 600/2;
+const JUMP_CANCEL_GRAVITY: float = 600/1.5;
 
 const FALL_SPEED: float = 210;
 const WALL_SLIDE_SPEED: float = 32;
@@ -174,6 +175,7 @@ func _physics_process(delta: float) -> void:
 		
 	if current_state.jump_cancel and !jump_pressed and allow_jump_cancel:
 		velocity.y = maxf(velocity.y, -JUMP_CANCEL_LOCK);
+		
 		allow_jump_cancel = false
 		
 	if current_state.can_shoot and charge > 1 and Input.is_action_pressed("PlFire") and current_shoot_recov <= 0 and LevelTracking.player_has_gun:
@@ -266,6 +268,9 @@ func update_velocity(dir, speed_delta, delta):
 		#	current_gravity = JUMP_CANCEL_GRAVITY;
 		#else:
 			#velocity.y += GRAVITY * delta;
+		#if current_state.jump_cancel and !Input.is_action_pressed("Jump"):
+			#current_gravity = JUMP_CANCEL_GRAVITY
+		#else:
 		current_gravity = GRAVITY;
 	else:
 		#velocity.y += FALL_GRAVITY * delta;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dh6pmhiveu215"]
+[gd_scene load_steps=17 format=4 uid="uid://dh6pmhiveu215"]
 
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="1_10tgf"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_ad4q6"]
@@ -13,11 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="7_pg76j"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="8_hait0"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="8_huckv"]
-[ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="11_g2dqi"]
 [ext_resource type="PackedScene" uid="uid://b0b75b4drogie" path="res://Prefabs/PoweredLamp.tscn" id="11_tuadn"]
 [ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="12_td4fu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trv0v"]
+[ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="16_5f4sr"]
 
 [node name="Level9" type="Node2D"]
 
@@ -362,24 +360,12 @@ charge_time = 5.0
 position = Vector2(100, -44)
 charge_time = 5.0
 
-[node name="StartingPoint" type="Area2D" parent="."]
-position = Vector2(284, 80)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("11_g2dqi")
+[node name="StartingPoint" parent="." instance=ExtResource("16_5f4sr")]
+position = Vector2(288, 84)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint"]
-shape = SubResource("RectangleShape2D_trv0v")
-
-[node name="StartingPoint2" type="Area2D" parent="."]
-position = Vector2(760, 56)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("11_g2dqi")
+[node name="StartingPoint2" parent="." instance=ExtResource("16_5f4sr")]
+position = Vector2(760, 60)
 point_name = "2"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint2"]
-shape = SubResource("RectangleShape2D_trv0v")
 
 [editable path="Conduit/MovingPlatform"]
 [editable path="Conduit/MovingPlatform2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://ndkubwmnojm7"]
+[gd_scene load_steps=18 format=4 uid="uid://ndkubwmnojm7"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_ftt2q"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_n0n7d"]
@@ -12,14 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="8_pwmk8"]
 [ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="8_vkf8k"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="9_kw3rr"]
-[ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="10_x2xn0"]
 [ext_resource type="PackedScene" uid="uid://b0b75b4drogie" path="res://Prefabs/PoweredLamp.tscn" id="11_hxrtp"]
 [ext_resource type="PackedScene" uid="uid://ch8vifdii05il" path="res://Prefabs/Laser.tscn" id="13_cnq7e"]
 [ext_resource type="PackedScene" uid="uid://dyjqvmt443mp6" path="res://Prefabs/DisapearingMurderBox.tscn" id="14_wjr70"]
+[ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="15_0leoo"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="16_tc6jg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_64ul8"]
-size = Vector2(16, 12)
 
 [node name="Node2D" type="Node2D"]
 
@@ -601,26 +598,12 @@ rotation = -1.57079
 [node name="Target" type="Node2D" parent="Conduit2/MovingPlatform2"]
 position = Vector2(0, 52)
 
-[node name="StartingPoint" type="Area2D" parent="."]
-position = Vector2(424, 16)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("10_x2xn0")
+[node name="StartingPoint3" parent="." instance=ExtResource("15_0leoo")]
+position = Vector2(436, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_64ul8")
-
-[node name="StartingPoint2" type="Area2D" parent="."]
-position = Vector2(636, 160)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("10_x2xn0")
+[node name="StartingPoint4" parent="." instance=ExtResource("15_0leoo")]
+position = Vector2(640, 164)
 point_name = "2"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint2"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_64ul8")
 
 [node name="Conduit3" type="Node2D" parent="."]
 position = Vector2(524, 16)
@@ -710,6 +693,13 @@ position = Vector2(24, 152)
 level_path = "res://Levels/Level9.tscn"
 starting_point = ">"
 door_name = "<"
+
+[node name="Door2" parent="." instance=ExtResource("16_tc6jg")]
+position = Vector2(776, -32)
+scale = Vector2(-1, 1)
+level_path = "res://Levels/Level1-1.tscn"
+starting_point = "<"
+door_name = ">"
 
 [editable path="Conduit2/MovingPlatform3"]
 [editable path="Conduit2/MovingPlatform2"]

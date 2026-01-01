@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://7ub8p6udp7gq"]
+[gd_scene load_steps=15 format=4 uid="uid://7ub8p6udp7gq"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_k4bls"]
+[ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="1_rcxq7"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="1_u1g22"]
 [ext_resource type="PackedScene" uid="uid://v4vrit5x03t" path="res://Prefabs/CloseBackgroundTilemap.tscn" id="2_hm2wx"]
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="2_oiu8t"]
@@ -10,17 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="6_4rroj"]
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="7_xm1x4"]
 [ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="8_dim7b"]
-[ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="8_mk3cd"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="9_6i6pf"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="11_0uwt3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gb5w"]
 size = Vector2(8, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kv6i"]
-size = Vector2(16, 42)
-
 [node name="Level2" type="Node2D"]
+
+[node name="StartingPoint" parent="." instance=ExtResource("1_rcxq7")]
+position = Vector2(212, 188)
+
+[node name="ColorRect" parent="." instance=ExtResource("11_0uwt3")]
+offset_top = -20.0
+offset_right = 464.0
+offset_bottom = 360.0
 
 [node name="Door" parent="." instance=ExtResource("1_u1g22")]
 position = Vector2(344, 96)
@@ -82,16 +87,6 @@ position = Vector2(-8, 52)
 
 [node name="Target" type="Node2D" parent="PowerCore/MovingPlatform"]
 position = Vector2(0, 36)
-
-[node name="StartingPoint" type="Area2D" parent="."]
-position = Vector2(212, 184)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("8_mk3cd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint"]
-position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_2kv6i")
 
 [node name="SpikeHolder" type="Node2D" parent="."]
 
@@ -219,8 +214,3 @@ rotation = 1.57079
 
 [node name="Spikes26" parent="SpikeHolder" instance=ExtResource("9_6i6pf")]
 position = Vector2(148, 340)
-
-[node name="ColorRect" parent="." instance=ExtResource("11_0uwt3")]
-offset_top = -20.0
-offset_right = 464.0
-offset_bottom = 360.0

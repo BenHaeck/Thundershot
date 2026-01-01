@@ -17,4 +17,9 @@ func _ready():
 		
 func activate_starting_point(node: Node2D):
 	LevelTracking.starting_location = point_name;
+	var anim = get_node_or_null("ChargeSprite");
+	if anim != null:
+		anim.play("Active");
+	else:
+		print("?")
 	pass
