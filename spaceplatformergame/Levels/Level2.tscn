@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://7ub8p6udp7gq"]
+[gd_scene load_steps=19 format=4 uid="uid://7ub8p6udp7gq"]
 
 [ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_k4bls"]
 [ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="1_rcxq7"]
@@ -13,9 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="8_dim7b"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="9_6i6pf"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="11_0uwt3"]
+[ext_resource type="Script" path="res://Scripts/ParallaxNode.gd" id="14_1xbu8"]
+[ext_resource type="Shader" path="res://Materials/RepeatShader.gdshader" id="14_nlom0"]
+[ext_resource type="Texture2D" uid="uid://6dov7evl5gc5" path="res://Images/BG2.png" id="15_d06kk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gb5w"]
 size = Vector2(8, 29)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxkjo"]
+shader = ExtResource("14_nlom0")
+shader_parameter/repeat_amount = Vector2(30, 50)
 
 [node name="Level2" type="Node2D"]
 
@@ -23,9 +30,9 @@ size = Vector2(8, 29)
 position = Vector2(212, 188)
 
 [node name="ColorRect" parent="." instance=ExtResource("11_0uwt3")]
-offset_top = -20.0
+offset_top = -24.0
 offset_right = 464.0
-offset_bottom = 360.0
+offset_bottom = 356.0
 
 [node name="Door" parent="." instance=ExtResource("1_u1g22")]
 position = Vector2(344, 96)
@@ -214,3 +221,12 @@ rotation = 1.57079
 
 [node name="Spikes26" parent="SpikeHolder" instance=ExtResource("9_6i6pf")]
 position = Vector2(148, 340)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -40
+material = SubResource("ShaderMaterial_cxkjo")
+position = Vector2(240, 200)
+scale = Vector2(30, 50)
+texture = ExtResource("15_d06kk")
+script = ExtResource("14_1xbu8")
+follow_amount = 0.6
