@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://1k6bi2x1f7hs"]
 
-[ext_resource type="Script" path="res://Scripts/MovingPlatform.gd" id="1_xc04w"]
+[ext_resource type="Script" path="res://Scripts/Circuitry/MovingPlatform.gd" id="1_xc04w"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_j1se3"]
-[ext_resource type="PackedScene" uid="uid://csb12x7jmi64l" path="res://Prefabs/Gear.tscn" id="3_j2bfp"]
+[ext_resource type="PackedScene" uid="uid://csb12x7jmi64l" path="res://Prefabs/Circuitry/Gear.tscn" id="3_j2bfp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17roc"]
 size = Vector2(16, 24)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=4 uid="uid://d1vwoyb58n3hv"]
 
-[ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="1_0iyry"]
+[ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/Circuitry/MovingPlatform.tscn" id="1_0iyry"]
 [ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="1_2clqx"]
 [ext_resource type="PackedScene" uid="uid://cywf1anycftp" path="res://Prefabs/TileMap.tscn" id="1_atwrh"]
-[ext_resource type="Script" path="res://Scripts/Conduit.gd" id="2_i5a5g"]
-[ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="4_elec7"]
+[ext_resource type="Script" path="res://Scripts/Circuitry/Conduit.gd" id="2_i5a5g"]
+[ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/Circuitry/PowerCore.tscn" id="4_elec7"]
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="6_mhujl"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="7_xctsk"]
 

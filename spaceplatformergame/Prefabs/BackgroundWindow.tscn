@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw7gam0lwld5w"]
 
-[ext_resource type="Texture2D" uid="uid://nfkduy6fe6la" path="res://Images/BGDetail.png" id="1_unyko"]
-[ext_resource type="Script" path="res://Scripts/BackgroundCorrecter.gd" id="2_apun6"]
+[ext_resource type="Texture2D" uid="uid://nfkduy6fe6la" path="res://Images/Background&Decor/BGDetail.png" id="1_unyko"]
+[ext_resource type="Script" path="res://Scripts/Background&Decor/BackgroundCorrecter.gd" id="2_apun6"]
 
 [node name="Window" type="Sprite2D"]
 self_modulate = Color(0.671875, 0.671875, 0.671875, 1)
 z_index = 1
-position = Vector2(-232, -4)
 texture = ExtResource("1_unyko")
 region_enabled = true
 region_rect = Rect2(0, 0, 12, 12)

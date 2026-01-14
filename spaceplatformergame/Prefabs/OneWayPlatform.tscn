@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cd6tbpkq2k35k"]
 
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="1_d2gi5"]
-[ext_resource type="Script" path="res://Scripts/SpriteStretcher.gd" id="1_r6y1u"]
+[ext_resource type="Script" path="res://Scripts/Background&Decor/SpriteStretcher.gd" id="1_r6y1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osni8"]
 size = Vector2(16, 6)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bd2jec13nkmnf"]
 
-[ext_resource type="PackedScene" uid="uid://hk31j27w6jqk" path="res://Prefabs/PowerMeter.tscn" id="1_hj3al"]
-[ext_resource type="Script" path="res://Scripts/ClockPowerer.gd" id="1_l1x6l"]
+[ext_resource type="PackedScene" uid="uid://hk31j27w6jqk" path="res://Prefabs/Circuitry/PowerMeter.tscn" id="1_hj3al"]
+[ext_resource type="Script" path="res://Scripts/Circuitry/ClockPowerer.gd" id="1_l1x6l"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_wd6lg"]
-[ext_resource type="Script" path="res://Scripts/PoweredAnimator.gd" id="3_2ghth"]
+[ext_resource type="Script" path="res://Scripts/Circuitry/PoweredAnimator.gd" id="3_2ghth"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntqxe"]
 atlas = ExtResource("2_wd6lg")

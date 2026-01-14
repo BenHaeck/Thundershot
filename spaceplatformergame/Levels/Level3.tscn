@@ -5,18 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://v4vrit5x03t" path="res://Prefabs/CloseBackgroundTilemap.tscn" id="2_42w4e"]
 [ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="3_l65b6"]
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="4_yu01a"]
-[ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="5_adt2h"]
-[ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="6_3cusy"]
-[ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="7_dgoeu"]
-[ext_resource type="Script" path="res://Scripts/Conduit.gd" id="7_pg6f2"]
+[ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/Circuitry/PowerCore.tscn" id="5_adt2h"]
+[ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/Circuitry/MovingPlatform.tscn" id="6_3cusy"]
+[ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/Circuitry/ElectricalWire.tscn" id="7_dgoeu"]
+[ext_resource type="Script" path="res://Scripts/Circuitry/Conduit.gd" id="7_pg6f2"]
 [ext_resource type="Script" path="res://Scripts/StartingPoint.gd" id="8_d7774"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="9_126hc"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="10_bp3nl"]
 [ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="12_fjlef"]
 [ext_resource type="Shader" path="res://Materials/RepeatShader.gdshader" id="14_onst0"]
-[ext_resource type="Texture2D" uid="uid://6dov7evl5gc5" path="res://Images/BG2.png" id="15_dm1ub"]
-[ext_resource type="Script" path="res://Scripts/ParallaxNode.gd" id="16_15340"]
-[ext_resource type="Texture2D" uid="uid://nfkduy6fe6la" path="res://Images/BGDetail.png" id="17_0hl6s"]
+[ext_resource type="Texture2D" uid="uid://6dov7evl5gc5" path="res://Images/Background&Decor/BG2.png" id="15_dm1ub"]
+[ext_resource type="Script" path="res://Scripts/Background&Decor/ParallaxNode.gd" id="16_15340"]
+[ext_resource type="Texture2D" uid="uid://nfkduy6fe6la" path="res://Images/Background&Decor/BGDetail.png" id="17_0hl6s"]
 [ext_resource type="PackedScene" uid="uid://cw7gam0lwld5w" path="res://Prefabs/BackgroundWindow.tscn" id="17_qm8ha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtwqg"]
@@ -278,9 +278,13 @@ position = Vector2(-8, -116)
 position = Vector2(48, -116)
 
 [node name="Window5" parent="BGWall" instance=ExtResource("17_qm8ha")]
-position = Vector2(192, -28)
+position = Vector2(224, -28)
+
+[node name="Window7" parent="BGWall" instance=ExtResource("17_qm8ha")]
+position = Vector2(-220, 96)
 
 [node name="Window" parent="BGWall" instance=ExtResource("17_qm8ha")]
+position = Vector2(-228, 0)
 
 [node name="Window2" type="Sprite2D" parent="BGWall/Window"]
 self_modulate = Color(0.671875, 0.671875, 0.671875, 1)

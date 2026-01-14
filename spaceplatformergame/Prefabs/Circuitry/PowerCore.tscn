@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://b30h6bf8ni3wn"]
 
-[ext_resource type="Script" path="res://Scripts/PowerCore.gd" id="1_pknxa"]
+[ext_resource type="Script" path="res://Scripts/Circuitry/PowerCore.gd" id="1_pknxa"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_lj2cl"]
-[ext_resource type="Script" path="res://Scripts/PoweredAnimator.gd" id="3_ucbpj"]
+[ext_resource type="Script" path="res://Scripts/Circuitry/PoweredAnimator.gd" id="3_ucbpj"]
 [ext_resource type="Script" path="res://Scripts/HitListener.gd" id="3_xwco7"]
 [ext_resource type="Texture2D" uid="uid://bofx1mdkoahhp" path="res://Images/Splotches.png" id="5_58qks"]
 [ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="6_i4q0k"]
-[ext_resource type="PackedScene" uid="uid://hk31j27w6jqk" path="res://Prefabs/PowerMeter.tscn" id="7_5femb"]
+[ext_resource type="PackedScene" uid="uid://hk31j27w6jqk" path="res://Prefabs/Circuitry/PowerMeter.tscn" id="7_5femb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oqup"]
 size = Vector2(12, 16)

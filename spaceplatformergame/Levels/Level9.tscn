@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dh6pmhiveu215"]
+[gd_scene load_steps=21 format=4 uid="uid://dh6pmhiveu215"]
 
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="1_10tgf"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_ad4q6"]
@@ -9,13 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://ry68c020vf1m" path="res://Prefabs/Door.tscn" id="4_gm8f3"]
 [ext_resource type="PackedScene" uid="uid://dyjqvmt443mp6" path="res://Prefabs/DisapearingMurderBox.tscn" id="4_i5g31"]
 [ext_resource type="PackedScene" uid="uid://daofs7q0dqiry" path="res://Prefabs/TrashEater.tscn" id="4_rsefw"]
-[ext_resource type="Script" path="res://Scripts/Conduit.gd" id="6_wwkof"]
-[ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/MovingPlatform.tscn" id="7_pg76j"]
+[ext_resource type="Script" path="res://Scripts/Circuitry/Conduit.gd" id="6_wwkof"]
+[ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/Circuitry/MovingPlatform.tscn" id="7_pg76j"]
 [ext_resource type="PackedScene" uid="uid://dqwjvv5vv5ebq" path="res://Prefabs/Spikes.tscn" id="8_hait0"]
-[ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/PowerCore.tscn" id="8_huckv"]
-[ext_resource type="PackedScene" uid="uid://b0b75b4drogie" path="res://Prefabs/PoweredLamp.tscn" id="11_tuadn"]
-[ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/ElectricalWire.tscn" id="12_td4fu"]
+[ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/Circuitry/PowerCore.tscn" id="8_huckv"]
+[ext_resource type="PackedScene" uid="uid://b0b75b4drogie" path="res://Prefabs/Circuitry/PoweredLamp.tscn" id="11_tuadn"]
+[ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/Circuitry/ElectricalWire.tscn" id="12_td4fu"]
 [ext_resource type="PackedScene" uid="uid://mt6ib7ce2pnc" path="res://Prefabs/Checkpoint.tscn" id="16_5f4sr"]
+[ext_resource type="Script" path="res://Scripts/Background&Decor/ParallaxNode.gd" id="17_qeyi5"]
+[ext_resource type="Texture2D" uid="uid://6dov7evl5gc5" path="res://Images/Background&Decor/BG2.png" id="18_2u3y4"]
+[ext_resource type="Shader" path="res://Materials/RepeatShader.gdshader" id="18_hfhv0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m16sp"]
+shader = ExtResource("18_hfhv0")
+shader_parameter/repeat_amount = Vector2(100, 30)
 
 [node name="Level9" type="Node2D"]
 
@@ -366,6 +373,18 @@ position = Vector2(288, 84)
 [node name="StartingPoint2" parent="." instance=ExtResource("16_5f4sr")]
 position = Vector2(760, 60)
 point_name = "2"
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -50
+texture_filter = 1
+position = Vector2(492, 40)
+script = ExtResource("17_qeyi5")
+follow_amount = 0.75
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+material = SubResource("ShaderMaterial_m16sp")
+scale = Vector2(100, 30)
+texture = ExtResource("18_2u3y4")
 
 [editable path="Conduit/MovingPlatform"]
 [editable path="Conduit/MovingPlatform2"]
