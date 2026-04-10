@@ -1,13 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0waw4wwe468w"]
+[gd_scene format=3 uid="uid://b0waw4wwe468w"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_v5o81"]
+[ext_resource type="Script" uid="uid://b6f16x2tldxyg" path="res://Scripts/PlayerScript.gd" id="1_v5o81"]
 [ext_resource type="PackedScene" uid="uid://7yh5wgcn66k7" path="res://Prefabs/Bullet.tscn" id="2_rhtpy"]
 [ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="3_0of2s"]
 [ext_resource type="Texture2D" uid="uid://c1enhtp45bltj" path="res://Images/CharacterSheet.png" id="3_atkhf"]
-[ext_resource type="Script" path="res://Scripts/HitListener.gd" id="4_hkhn1"]
+[ext_resource type="Script" uid="uid://oj5pnj1iu483" path="res://Scripts/HitListener.gd" id="4_hkhn1"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="5_61csd"]
-[ext_resource type="Script" path="res://Scripts/PlayerState.gd" id="5_w3w3d"]
-[ext_resource type="Script" path="res://Scripts/Meter.gd" id="6_u07b4"]
+[ext_resource type="Script" uid="uid://uiarhko23xom" path="res://Scripts/PlayerState.gd" id="5_w3w3d"]
+[ext_resource type="Script" uid="uid://bay33rhslex3u" path="res://Scripts/Meter.gd" id="6_u07b4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epr8j"]
 atlas = ExtResource("3_atkhf")
@@ -114,21 +114,21 @@ animations = [{
 radius = 3.0
 height = 8.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=2040157373]
 physics_interpolation_mode = 1
 collision_layer = 2
 collision_mask = 341
 script = ExtResource("1_v5o81")
 bullet = ExtResource("2_rhtpy")
 
-[node name="WalkParticles" type="CPUParticles2D" parent="."]
+[node name="WalkParticles" type="CPUParticles2D" parent="." unique_id=121316772]
 texture_filter = 1
 position = Vector2(0, 6)
 emitting = false
 amount = 5
+texture = ExtResource("3_0of2s")
 lifetime = 0.5
 randomness = 0.13
-texture = ExtResource("3_0of2s")
 emission_shape = 3
 emission_rect_extents = Vector2(2, 1)
 direction = Vector2(0, -2.25)
@@ -141,13 +141,13 @@ damping_max = 12.0
 angle_max = 360.0
 color = Color(0.625, 0.625, 0.625, 1)
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2003867634]
 texture_filter = 1
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_pm4i6")
 animation = &"Gunshot"
 
-[node name="Meter" type="Sprite2D" parent="Sprite"]
+[node name="Meter" type="Sprite2D" parent="Sprite" unique_id=348462274]
 z_index = 40
 position = Vector2(0, -9)
 texture = ExtResource("5_61csd")
@@ -155,7 +155,7 @@ region_enabled = true
 region_rect = Rect2(80, 36, 12, 4)
 script = ExtResource("6_u07b4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite/Meter"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite/Meter" unique_id=191812002]
 self_modulate = Color(0.34902, 0.972549, 1, 1)
 z_index = -1
 position = Vector2(0, -1)
@@ -164,46 +164,46 @@ texture = ExtResource("5_61csd")
 region_enabled = true
 region_rect = Rect2(80, 34, 4, 2)
 
-[node name="JumpParticles" type="CPUParticles2D" parent="."]
+[node name="JumpParticles" type="CPUParticles2D" parent="." unique_id=2135800582]
 visible = false
 texture_filter = 1
 position = Vector2(0, 5)
 emitting = false
 amount = 15
+texture = ExtResource("3_0of2s")
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
-texture = ExtResource("3_0of2s")
 direction = Vector2(0, -1)
 gravity = Vector2(0, 48)
 initial_velocity_min = 24.0
 initial_velocity_max = 120.0
 color = Color(0.623529, 0.623529, 0.623529, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=965927195]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_bvhbx")
 
-[node name="HitListener" type="Node" parent="."]
+[node name="HitListener" type="Node" parent="." unique_id=30265838]
 script = ExtResource("4_hkhn1")
 
-[node name="States" type="Node" parent="."]
+[node name="States" type="Node" parent="." unique_id=1489917922]
 
-[node name="Grounded" type="Node" parent="States"]
+[node name="Grounded" type="Node" parent="States" unique_id=1814895747]
 script = ExtResource("5_w3w3d")
 action_reset = true
 
-[node name="Arial" type="Node" parent="States"]
+[node name="Arial" type="Node" parent="States" unique_id=1714258375]
 script = ExtResource("5_w3w3d")
 jump_cancel = true
 
-[node name="WallSliding" type="Node" parent="States"]
+[node name="WallSliding" type="Node" parent="States" unique_id=413488282]
 script = ExtResource("5_w3w3d")
 action_reset = true
 jump_cancel = true
 
-[node name="Recoil" type="Node" parent="States"]
+[node name="Recoil" type="Node" parent="States" unique_id=907226313]
 script = ExtResource("5_w3w3d")
 coyote_enabled = false
 update_facing_dir = false

@@ -2,44 +2,50 @@ extends CharacterBody2D
 
 class_name Player
 
+# basic movement constants
 const MOVE_SPEED:float = 150/2;
 const SPEED_DELTA: float = 570/2;
 const SLOW_DELTA: float = 700/2;
 const SLOW2_DELTA: float = 1500/2;
 const AIR_SPEED_DELTA_MULT: float = 0.41;
 
-const LAND_VEL_MULT: float = 0.65;
 
 #const GRAVITY: float = 600/4;
 const GRAVITY: float = 630/4;
 const FALL_GRAVITY: float = 600/2;
 const JUMP_CANCEL_GRAVITY: float = 600/1.5;
 
+#falling & wall sliding constants
 const FALL_SPEED: float = 210;
 const WALL_SLIDE_SPEED: float = 32;
 const WALL_SLIDE_CONTROL: float = 20;
-
 const WALL_SLIDE_FRICTION: float = 540;
+const LAND_VEL_MULT: float = 0.7;
+
 
 const WALL_JUMP_IMPULSE: Vector2 = Vector2(64, 94);
 
+# jumping constants
 const JUMP_HEIGHT: float = 24;
 const JUMP_CANCEL_LOCK: float = 31;
 const JUMP_IMPULSE: float = sqrt(2*JUMP_HEIGHT*GRAVITY);
 
 const COYOTE_TIME: float = 0.125;
 
-
+# shoot bounce constants
 const SHOOT_BOUNCE:float = 35;
 const SHOOT_WALL_BOUNCE:float = 64*0.6;
+const SHOOT_DAMPEN: float = 0.25;
 
+# charge constants
 const MAX_CHARGE: float = 1.6;
 const CHARGE_RATE: float = 1.2;
 const CHARGE_RATE_AIR: float = 0.5;
-const SHOOT_DAMPEN: float = 0.25;
+const SHOOT_RECOV:float = 0.5;
+
+# bullet projectile constants
 const BULLET_SPEED: float = 250;
 const BULLET_OFFSET: float = 8;
-const SHOOT_RECOV:float = 0.5;
 
 const RF_TRANSITION_VELOCITY = 18;
 
