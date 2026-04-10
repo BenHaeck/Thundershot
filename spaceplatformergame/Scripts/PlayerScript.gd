@@ -53,14 +53,17 @@ const RF_TRANSITION_VELOCITY = 18;
 
 @export var bullet: PackedScene;
 
-var can_shoot = false;
 
 var jump_anti_queue = false;
-var current_shoot_recov:float = 0;
-var current_coyote_time:float = 0;
 
-var charge = MAX_CHARGE
+# Coyote time
+var current_coyote_time:float = 0;
 var jump_type = 0;
+
+# gun
+var charge = MAX_CHARGE
+var current_shoot_recov:float = 0;
+var can_shoot = false;
 
 var dead = false;
 
