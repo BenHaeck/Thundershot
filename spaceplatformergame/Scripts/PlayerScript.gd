@@ -38,8 +38,8 @@ const SHOOT_WALL_BOUNCE:float = 64*0.6;
 const SHOOT_DAMPEN: float = 0.25;
 
 # charge constants
-const MAX_CHARGE: float = 1.6;
-const CHARGE_RATE: float = 1.2;
+const MAX_CHARGE: float = 1;
+const CHARGE_RATE: float = 2.5;
 const CHARGE_RATE_AIR: float = 0.5;
 const SHOOT_RECOV:float = 0.5;
 
@@ -187,7 +187,7 @@ func _physics_process(delta: float) -> void:
 		
 		allow_jump_cancel = false
 		
-	if current_state.can_shoot and charge > 1 and Input.is_action_pressed("PlFire") and current_shoot_recov <= 0 and LevelTracking.player_has_gun:
+	if current_state.can_shoot and charge >= 1 and Input.is_action_pressed("PlFire") and current_shoot_recov <= 0 and LevelTracking.player_has_gun:
 		charge -=1;
 		fire()
 
