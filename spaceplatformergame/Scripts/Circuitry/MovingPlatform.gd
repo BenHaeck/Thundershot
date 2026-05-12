@@ -13,11 +13,11 @@ extends Node2D
 
 var current_speed = 0
 
-var w = 0;
+var move_phase = 0;
 
 func _ready() -> void:
 	if invert_activation:
-		w = 0.95;
+		move_phase = 0.95;
 	line.points[1] = target_pos
 
 func _physics_process(delta: float) -> void:
@@ -25,14 +25,14 @@ func _physics_process(delta: float) -> void:
 	if get_parent().get_active() != invert_activation:
 		d = 1;
 		
-	if float(d+1)*0.5 != w:
+	if float(d+1)*0.5 != move_phase:
 		current_speed += acceleration * d * delta
 		current_speed = clampf(current_speed, -speed, speed)
 		if current_speed * d < 0: current_speed = 0;
-		w += current_speed * delta;
-		w = clampf(w, 0, 1);
+		move_phase += current_speed * delta;
+		move_phase = clampf(move_phase, 0, 1);
 		
-		var n_pos = Vector2.ZERO.lerp(target_pos, smoothstep(0, 1, w));
+		var n_pos = Vector2.ZERO.lerp(target_pos, smoothstep(0, 1, move_phase));
 		if delta > 0:
 			var clv = (n_pos - platform.position) / delta
 			clv.y *= 0.25;

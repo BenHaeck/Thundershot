@@ -17,6 +17,10 @@ var current_launch_time = 0;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$LaunchArea.body_entered.connect(launch);
+	if invert_active:
+		vent_sprite.play("Closing")
+	else:
+		vent_sprite.play("Opening")
 	pass # Replace with function body.
 
 
