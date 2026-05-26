@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="5_61csd"]
 [ext_resource type="Script" uid="uid://uiarhko23xom" path="res://Scripts/PlayerState.gd" id="5_w3w3d"]
 [ext_resource type="Script" uid="uid://bay33rhslex3u" path="res://Scripts/Meter.gd" id="6_u07b4"]
+[ext_resource type="Material" uid="uid://djwanamoeas15" path="res://Materials/LightEscShader.tres" id="9_t8lmw"]
+[ext_resource type="Texture2D" uid="uid://d3g86ltes17yr" path="res://Images/PointSplotch.png" id="10_k2qb3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epr8j"]
 atlas = ExtResource("3_atkhf")
@@ -207,3 +209,13 @@ jump_cancel = true
 script = ExtResource("5_w3w3d")
 coyote_enabled = false
 update_facing_dir = false
+
+[node name="Flashlight" type="Node2D" parent="." unique_id=599615798]
+
+[node name="Sprite2D" type="Sprite2D" parent="Flashlight" unique_id=1292276177]
+self_modulate = Color(1, 0.926, 0.63, 0.08627451)
+material = ExtResource("9_t8lmw")
+position = Vector2(28, 0)
+rotation = -1.5707941
+scale = Vector2(2, 4)
+texture = ExtResource("10_k2qb3")

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ce3k2knw1in2e"]
+
+[ext_resource type="Script" uid="uid://dkchqr82kv8n7" path="res://Scripts/ParallaxNode.gd" id="1_8mt4m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c4qx2"]
+load_path = "res://.godot/imported/FarBackgroundTileset.png-654f132c2b84954b2e07c2197d5e2558.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8mt4m"]
+texture = SubResource("CompressedTexture2D_c4qx2")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:1/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_85scd"]
+tile_size = Vector2i(4, 4)
+sources/0 = SubResource("TileSetAtlasSource_8mt4m")
+
+[node name="TileMapLayer" type="TileMapLayer" unique_id=1938480924]
+self_modulate = Color(1, 1, 1, 0.3019608)
+z_index = -50
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_85scd")
+script = ExtResource("1_8mt4m")
+follow_amount = 0.5

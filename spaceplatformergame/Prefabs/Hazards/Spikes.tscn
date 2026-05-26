@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqwjvv5vv5ebq"]
+[gd_scene format=3 uid="uid://dqwjvv5vv5ebq"]
 
-[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="1_0mgd4"]
-[ext_resource type="Shader" path="res://Materials/SwayShader.gdshader" id="2_ew0dp"]
+[ext_resource type="Script" uid="uid://dvgupeumm7rk6" path="res://Scripts/Hitbox.gd" id="1_0mgd4"]
+[ext_resource type="Shader" uid="uid://cnhl6akaw7ntg" path="res://Materials/SwayShader.gdshader" id="2_ew0dp"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_w0d0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md4e6"]
@@ -13,7 +13,7 @@ shader_parameter/sway_amount = Vector2(0.08, 0.03)
 shader_parameter/offset = Vector2(0, 2)
 shader_parameter/sway_speed = 0.5
 
-[node name="Spikes" type="Area2D"]
+[node name="Spikes" type="Area2D" unique_id=317403122]
 collision_mask = 102
 input_pickable = false
 monitorable = false
@@ -22,12 +22,13 @@ limited_lifetime = false
 peircing = true
 damage_type = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878194335]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_md4e6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1883551290]
 z_index = 25
+z_as_relative = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_ik58g")
 position = Vector2(0, 4)

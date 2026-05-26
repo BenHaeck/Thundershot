@@ -73,6 +73,8 @@ var facing_dir = 0;
 
 @onready var current_state = $States/Arial;
 
+@onready var flashlight = $Flashlight
+
 @onready var grounded_state = $States/Grounded;
 @onready var arial_state = $States/Arial;
 @onready var recoil_state = $States/Recoil;
@@ -100,6 +102,8 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
+	
+	flashlight.rotation = (get_global_mouse_position() - global_position).angle();
 	forground_shader.set_shader_parameter("visible_point", global_position);
 	if dead:
 		get_tree().reload_current_scene()

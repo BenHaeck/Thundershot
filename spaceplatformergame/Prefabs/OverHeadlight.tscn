@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b3u0ettjwv4fy"]
+
+[ext_resource type="Texture2D" uid="uid://nfkduy6fe6la" path="res://Images/Background&Decor/BGDetail.png" id="1_1054n"]
+[ext_resource type="Material" uid="uid://djwanamoeas15" path="res://Materials/LightEscShader.tres" id="2_wuwrx"]
+[ext_resource type="Texture2D" uid="uid://d3g86ltes17yr" path="res://Images/PointSplotch.png" id="3_pc7uw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1054n"]
+size = Vector2(10, 3)
+
+[node name="Overheadlight" type="Node2D" unique_id=1748140415]
+texture_filter = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1293449964]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=319169859]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1054n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1735094940]
+z_index = 25
+position = Vector2(0, 2)
+texture = ExtResource("1_1054n")
+region_enabled = true
+region_rect = Rect2(32, 0, 12, 4)
+
+[node name="Lights" type="Node2D" parent="." unique_id=1149825118]
+position = Vector2(0, 3)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Lights" unique_id=1609566312]
+modulate = Color(1, 0.8815, 0.20999998, 0.07058824)
+z_index = 26
+texture_filter = 2
+material = ExtResource("2_wuwrx")
+position = Vector2(-2, 0)
+scale = Vector2(7, 8)
+texture = ExtResource("3_pc7uw")
+offset = Vector2(0, 6)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Lights" unique_id=573578633]
+modulate = Color(1, 0.8815, 0.20999998, 0.07058824)
+z_index = 26
+texture_filter = 2
+material = ExtResource("2_wuwrx")
+position = Vector2(2, 0)
+scale = Vector2(7, 8)
+texture = ExtResource("3_pc7uw")
+offset = Vector2(0, 6)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Lights" unique_id=1204546875]
+modulate = Color(1, 0.8815, 0.20999998, 0.07058824)
+z_index = 26
+texture_filter = 2
+material = ExtResource("2_wuwrx")
+scale = Vector2(7, 8)
+texture = ExtResource("3_pc7uw")
+offset = Vector2(0, 6)

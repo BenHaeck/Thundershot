@@ -8,9 +8,10 @@
 [ext_resource type="Material" uid="uid://c66h5ug8x4iu5" path="res://Materials/OutdoorsMaterial.tres" id="2_rnt2o"]
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="3_d2phv"]
 [ext_resource type="Script" uid="uid://df2g36qsr4b3l" path="res://Scripts/Circuitry/Conduit.gd" id="4_rx7y7"]
-[ext_resource type="PackedScene" uid="uid://v4vrit5x03t" path="res://Prefabs/CloseBackgroundTilemap.tscn" id="5_lqj1y"]
+[ext_resource type="PackedScene" uid="uid://v4vrit5x03t" path="res://Prefabs/Tilemaps/CloseBackgroundTilemap.tscn" id="5_lqj1y"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/Circuitry/PowerCore.tscn" id="5_n27jn"]
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/Circuitry/MovingPlatform.tscn" id="6_l3y0b"]
+[ext_resource type="PackedScene" uid="uid://b18a25d3np5m1" path="res://Prefabs/OutdoorLiighting.tscn" id="6_qntlv"]
 [ext_resource type="PackedScene" uid="uid://dobpbeifo2mg2" path="res://Prefabs/Circuitry/AirVent.tscn" id="7_f3p5g"]
 [ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/Circuitry/ElectricalWire.tscn" id="8_jhmc7"]
 [ext_resource type="PackedScene" uid="uid://b0b75b4drogie" path="res://Prefabs/Circuitry/PoweredLamp.tscn" id="9_lqj1y"]
@@ -72,6 +73,8 @@ position = Vector2(68, 104)
 right_bound = 464
 lower_bound = 104
 upper_bound = -1008
+
+[node name="OutdoorLighting" parent="Camera2D" unique_id=854034255 instance=ExtResource("6_qntlv")]
 
 [node name="Player" parent="." unique_id=1659530997 instance=ExtResource("1_j1a42")]
 position = Vector2(32, 140)

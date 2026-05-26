@@ -3,9 +3,12 @@ extends Node2D
 @onready var starting_pos = position;
 
 @export var follow_amount: float = 1
+@export var resize_on_start: bool = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if resize_on_start:
+		scale *= follow_amount;
 	pass # Replace with function body.
 
 

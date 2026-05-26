@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd2jec13nkmnf"]
+[gd_scene format=3 uid="uid://bd2jec13nkmnf"]
 
 [ext_resource type="PackedScene" uid="uid://hk31j27w6jqk" path="res://Prefabs/Circuitry/PowerMeter.tscn" id="1_hj3al"]
-[ext_resource type="Script" path="res://Scripts/Circuitry/ClockPowerer.gd" id="1_l1x6l"]
+[ext_resource type="Script" uid="uid://c5um07ejubkpm" path="res://Scripts/Circuitry/ClockPowerer.gd" id="1_l1x6l"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="2_wd6lg"]
-[ext_resource type="Script" path="res://Scripts/Circuitry/PoweredAnimator.gd" id="3_2ghth"]
+[ext_resource type="Script" uid="uid://bu015kd1aujxg" path="res://Scripts/Circuitry/PoweredAnimator.gd" id="3_2ghth"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntqxe"]
 atlas = ExtResource("2_wd6lg")
@@ -46,15 +46,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ClockGenerator" type="Node2D"]
+[node name="ClockGenerator" type="Node2D" unique_id=1726186391]
 texture_filter = 1
 script = ExtResource("1_l1x6l")
 
-[node name="Meter" parent="." instance=ExtResource("1_hj3al")]
+[node name="Meter" parent="." unique_id=1570420602 instance=ExtResource("1_hj3al")]
+z_as_relative = false
 position = Vector2(8, 0)
 rotation = 1.57079
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1451728764]
 sprite_frames = SubResource("SpriteFrames_7u3lh")
 animation = &"Active"
 frame = 1

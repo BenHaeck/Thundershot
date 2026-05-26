@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b18a25d3np5m1"]
+
+[ext_resource type="Material" uid="uid://djwanamoeas15" path="res://Materials/LightEscShader.tres" id="1_7w776"]
+
+[sub_resource type="Gradient" id="Gradient_7u5qp"]
+colors = PackedColorArray(0.41, 0.331075, 0.2665, 1, 0.72, 0.58140004, 0.468, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lftke"]
+gradient = SubResource("Gradient_7u5qp")
+width = 16
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.019097222, 0)
+
+[sub_resource type="Gradient" id="Gradient_dwll4"]
+offsets = PackedFloat32Array(0, 0.77163464, 1)
+colors = PackedColorArray(0.41, 0.331075, 0.2665, 0, 0.70925486, 0.6229372, 0.5523137, 0.22675341, 1, 0.9065, 0.83, 0.27058825)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ljxd1"]
+gradient = SubResource("Gradient_dwll4")
+width = 16
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.019097222, 0)
+
+[node name="OutdoorLighting" type="Sprite2D" unique_id=854034255]
+z_index = -200
+z_as_relative = false
+texture_filter = 2
+scale = Vector2(18, 9)
+texture = SubResource("GradientTexture2D_lftke")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=454437230]
+z_index = 30
+z_as_relative = false
+texture_filter = 2
+material = ExtResource("1_7w776")
+texture = SubResource("GradientTexture2D_ljxd1")
