@@ -37,3 +37,4 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_85scd")
 script = ExtResource("1_8mt4m")
 follow_amount = 0.5
+resize_on_start = true

@@ -749,6 +749,15 @@ position = Vector2(328, 88)
 [node name="Overheadlight3" parent="Light" unique_id=1847053884 instance=ExtResource("21_41o7t")]
 position = Vector2(424, -16)
 
+[node name="Overheadlight6" parent="Light" unique_id=1102848892 instance=ExtResource("21_41o7t")]
+position = Vector2(620, 8)
+
+[node name="Overheadlight4" parent="Light" unique_id=1720623556 instance=ExtResource("21_41o7t")]
+position = Vector2(680, 88)
+
+[node name="Overheadlight5" parent="Light" unique_id=1326982207 instance=ExtResource("21_41o7t")]
+position = Vector2(732, -48)
+
 [editable path="Conduit2/MovingPlatform3"]
 [editable path="Conduit2/MovingPlatform2"]
 [editable path="Conduit3/MovingPlatform"]
