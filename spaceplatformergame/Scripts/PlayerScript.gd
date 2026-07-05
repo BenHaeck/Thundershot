@@ -44,7 +44,7 @@ const CHARGE_RATE_AIR: float = 0.5;
 const SHOOT_RECOV:float = 0.5;
 
 # bullet projectile constants
-const BULLET_SPEED: float = 250;
+const BULLET_SPEED: float = 350;
 const BULLET_OFFSET: float = 6;
 
 const RF_TRANSITION_VELOCITY = 18;
