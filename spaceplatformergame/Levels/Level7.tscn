@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bp1c4i28xh0rl"]
 
-[ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_2nc6b"]
+[ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/Tilemaps/BetterTilemap.tscn" id="1_2nc6b"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_omj7v"]
 [ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="2_nhpy1"]
 [ext_resource type="PackedScene" uid="uid://v4vrit5x03t" path="res://Prefabs/Tilemaps/CloseBackgroundTilemap.tscn" id="3_1soyn"]

@@ -5,7 +5,10 @@ extends Node2D
 @onready var laser_point = $LaserEnd
 @onready var rc = $RayCast2D
 
+
+
 func _ready() -> void:
+	
 	laser_point.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _physics_process(delta: float) -> void:

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://ndkubwmnojm7"]
 
-[ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_ftt2q"]
+[ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/Tilemaps/BetterTilemap.tscn" id="1_ftt2q"]
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_n0n7d"]
 [ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="2_rehu7"]
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="3_amnpk"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://1k6bi2x1f7hs" path="res://Prefabs/Circuitry/MovingPlatform.tscn" id="8_pwmk8"]
 [ext_resource type="PackedScene" uid="uid://dov8oha3vcwor" path="res://Prefabs/Circuitry/ElectricalWire.tscn" id="8_vkf8k"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/Circuitry/PowerCore.tscn" id="9_kw3rr"]
+[ext_resource type="PackedScene" uid="uid://5r7o1eh3obe7" path="res://Prefabs/Decorations/Pipe.tscn" id="9_qbgrt"]
 [ext_resource type="PackedScene" uid="uid://b0b75b4drogie" path="res://Prefabs/Circuitry/PoweredLamp.tscn" id="11_hxrtp"]
 [ext_resource type="PackedScene" uid="uid://ch8vifdii05il" path="res://Prefabs/Hazards/Laser.tscn" id="13_cnq7e"]
 [ext_resource type="PackedScene" uid="uid://dyjqvmt443mp6" path="res://Prefabs/Hazards/DisapearingMurderBox.tscn" id="14_wjr70"]
@@ -474,6 +475,16 @@ rotation = -4.71238
 [node name="Spikes3" parent="Spikes" unique_id=652087562 instance=ExtResource("5_vskth")]
 position = Vector2(100, 148)
 
+[node name="Pipe" parent="." unique_id=724693803 instance=ExtResource("9_qbgrt")]
+position = Vector2(212, 128)
+rotation = 1.2226758
+scale = Vector2(33.313404, 1)
+
+[node name="Pipe2" parent="." unique_id=1626080993 instance=ExtResource("9_qbgrt")]
+position = Vector2(136.00003, 128)
+rotation = 2.2408118
+scale = Vector2(33.313404, 1)
+
 [node name="OneWayPlatforms" type="Node2D" parent="." unique_id=871301935]
 
 [node name="OneWayPlatform" parent="OneWayPlatforms" unique_id=1694690363 instance=ExtResource("4_e6s6v")]
@@ -707,8 +718,8 @@ points = PackedVector2Array(0, 0, -56, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 [node name="MovingPlatform" parent="Conduit5" unique_id=360820982 instance=ExtResource("8_pwmk8")]
 position = Vector2(632, -20)
-speed = 6.0
-acceleration = 5.0
+speed = 3.0
+acceleration = 3.0
 
 [node name="Target" type="Node2D" parent="Conduit5/MovingPlatform" unique_id=53717086]
 position = Vector2(28, 0)

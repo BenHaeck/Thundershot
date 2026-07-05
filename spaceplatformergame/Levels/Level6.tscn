@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://br4tp0y74ale0"]
 
 [ext_resource type="PackedScene" uid="uid://nu3rnmfgm8l" path="res://Prefabs/PostProcessRect.tscn" id="1_dpyeg"]
-[ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/BetterTilemap.tscn" id="1_hsrjv"]
+[ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/Tilemaps/BetterTilemap.tscn" id="1_hsrjv"]
 [ext_resource type="Script" uid="uid://df2g36qsr4b3l" path="res://Scripts/Circuitry/Conduit.gd" id="2_6jeuc"]
 [ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="2_t0a36"]
 [ext_resource type="PackedScene" uid="uid://b30h6bf8ni3wn" path="res://Prefabs/Circuitry/PowerCore.tscn" id="3_xdilr"]

@@ -4,33 +4,12 @@
 [ext_resource type="Script" uid="uid://bpo876ya0s7bi" path="res://Scripts/LaserLogic.gd" id="1_e0nwg"]
 [ext_resource type="Material" uid="uid://djwanamoeas15" path="res://Materials/LightEscShader.tres" id="2_310sv"]
 [ext_resource type="Script" uid="uid://dvgupeumm7rk6" path="res://Scripts/Hitbox.gd" id="2_emapg"]
+[ext_resource type="SpriteFrames" uid="uid://cjd66m46t5mf1" path="res://Images/LaserAnimation.tres" id="3_1j0rc"]
 [ext_resource type="Script" uid="uid://cqmgw1pj76820" path="res://Scripts/AutoPlay.gd" id="3_scw57"]
 [ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="5_yi0me"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwjoy"]
 size = Vector2(3, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqo4e"]
-atlas = ExtResource("1_5epl1")
-region = Rect2(32, 54, 16, 2)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0c2j"]
-atlas = ExtResource("1_5epl1")
-region = Rect2(32, 52, 16, 2)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_toi2b"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqo4e")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_s0c2j")
-}],
-"loop": true,
-"name": &"default",
-"speed": 30.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_koteb"]
 size = Vector2(2, 3)
@@ -56,7 +35,7 @@ self_modulate = Color(1, 1, 1, 0.698039)
 material = ExtResource("2_310sv")
 position = Vector2(1, 0)
 rotation = 1.57079
-sprite_frames = SubResource("SpriteFrames_toi2b")
+sprite_frames = ExtResource("3_1j0rc")
 frame_progress = 0.592765
 script = ExtResource("3_scw57")
 

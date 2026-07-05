@@ -14,7 +14,9 @@ void fragment() {
 
 	float d = distance(world_position, visible_point);
 	if (d < visible_radius) {
-		COLOR.a = (d) / visible_radius;
+		float a_mult = (d) / visible_radius;
+		a_mult *= a_mult;
+		COLOR.a *= a_mult;
 	}
 }
 

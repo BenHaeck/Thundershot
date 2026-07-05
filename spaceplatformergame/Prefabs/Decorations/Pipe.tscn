@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://5r7o1eh3obe7"]
+
+[ext_resource type="Script" uid="uid://d08fxvd7pyld3" path="res://Scripts/Background&Decor/SpriteStretcher.gd" id="1_mgkxr"]
+[ext_resource type="Material" uid="uid://cth5745jj1tgn" path="res://Materials/ForgroundTilemapMaterial.tres" id="2_bgpsq"]
+[ext_resource type="Texture2D" uid="uid://nfkduy6fe6la" path="res://Images/Background&Decor/BGDetail.png" id="2_bm8iv"]
+
+[node name="Pipe" type="Node2D" unique_id=724693803]
+z_index = 40
+texture_filter = 1
+script = ExtResource("1_mgkxr")
+
+[node name="Middle" type="Sprite2D" parent="." unique_id=1178402444]
+material = ExtResource("2_bgpsq")
+position = Vector2(1.8119812e-05, 1.7642975e-05)
+rotation = -6.2831764
+texture = ExtResource("2_bm8iv")
+region_enabled = true
+region_rect = Rect2(24, 0, 4, 8)
+
+[node name="Right" type="Sprite2D" parent="." unique_id=962092185]
+material = ExtResource("2_bgpsq")
+position = Vector2(2, 0)
+scale = Vector2(0.125, 1)
+texture = ExtResource("2_bm8iv")
+offset = Vector2(2, 0)
+region_enabled = true
+region_rect = Rect2(28, 0, 4, 8)
+
+[node name="Left" type="Sprite2D" parent="." unique_id=744938962]
+material = ExtResource("2_bgpsq")
+position = Vector2(-2, 0)
+rotation = -3.1415882
+scale = Vector2(0.125, 1)
+texture = ExtResource("2_bm8iv")
+offset = Vector2(2, 0)
+region_enabled = true
+region_rect = Rect2(28, 0, 4, 8)
