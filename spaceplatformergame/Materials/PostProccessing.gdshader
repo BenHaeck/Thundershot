@@ -33,8 +33,10 @@ void fragment() {
 	color *= vin.z;
 
 
-	color *= world_tint.rgb * world_tint.a * 2.0;
+	//color *= world_tint.rgb * world_tint.a * 2.0;
 
+	vec3 wt = world_tint.rgb * world_tint.a * 2.0;
+	color = 1.0- ((1.0 - color) * (2.0-wt));
 	COLOR.rgb = color;
 	// Called for every pixel the material is visible on.
 }

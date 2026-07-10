@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_30y4f")
-shader_parameter/world_tint = Color(1, 0.8235294, 0.8117647, 0.67058825)
+shader_parameter/world_tint = Color(1, 0.88, 0.88, 0.54901963)
 shader_parameter/saturation = 0.7
 shader_parameter/vin_amount = 0.34
 shader_parameter/color_eat = 0.4

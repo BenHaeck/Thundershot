@@ -31,8 +31,9 @@ void fragment() {
 	
 	color *= vin.z;
 	
-	
-	color *= world_tint.rgb * world_tint.a * 2.0;
+	vec3 wt = world_tint.rgb * world_tint.a * 2.0;
+	//color *= world_tint.rgb * world_tint.a * 2.0;
+	//color = 1.0- ((1.0 - color) * (2.0-wt));
 	
 	COLOR.rgb = color;
 	// Called for every pixel the material is visible on.
@@ -46,6 +47,6 @@ void fragment() {
 
 [resource]
 shader = SubResource("Shader_rynl3")
-shader_parameter/world_tint = Color(1, 1, 1, 0.568627)
+shader_parameter/world_tint = Color(0.85539997, 0.94, 0.8836, 0.50980395)
 shader_parameter/vin_amount = 0.7
 shader_parameter/color_eat = 0.05
