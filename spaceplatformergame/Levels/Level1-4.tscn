@@ -1,0 +1,15 @@
+[gd_scene format=4 uid="uid://dovni78bv5m7c"]
+
+[ext_resource type="PackedScene" uid="uid://iisim5g4mr" path="res://Prefabs/Tilemaps/BetterTilemap.tscn" id="1_h8xa3"]
+[ext_resource type="PackedScene" uid="uid://b0waw4wwe468w" path="res://Prefabs/Player.tscn" id="2_vi62c"]
+[ext_resource type="PackedScene" uid="uid://bl0wdhhr5yhnj" path="res://Prefabs/Cam.tscn" id="3_vi62c"]
+
+[node name="Level14" type="Node2D" unique_id=517074035]
+
+[node name="BetterTilemap" parent="." unique_id=1904461886 instance=ExtResource("1_h8xa3")]
+tile_map_data = PackedByteArray("AAAHAA4AAAACAAAAAAAIAA4AAAACAAAAAAAJAA4AAAACAAAAAAAKAA4AAAACAAAAAAALAA4AAAACAAAAAAAMAA4AAAACAAAAAAANAA4AAAACAAAAAAAOAA4AAAACAAAAAAA=")
+
+[node name="Player" parent="." unique_id=2040157373 instance=ExtResource("2_vi62c")]
+position = Vector2(108, 48)
+
+[node name="Camera2D" parent="." unique_id=142968780 instance=ExtResource("3_vi62c")]

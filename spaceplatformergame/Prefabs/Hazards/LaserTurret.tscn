@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cn3askhcps0gg"]
 
 [ext_resource type="Script" uid="uid://cyj0d1q8dlmeg" path="res://Scripts/LaserTurret.gd" id="1_3v58o"]
-[ext_resource type="Texture2D" uid="uid://bf7swcy7jrm66" path="res://icon.svg" id="2_b5b5m"]
 [ext_resource type="Script" uid="uid://bpo876ya0s7bi" path="res://Scripts/LaserLogic.gd" id="3_ep7aa"]
 [ext_resource type="Script" uid="uid://oj5pnj1iu483" path="res://Scripts/HitListener.gd" id="3_xcvpv"]
 [ext_resource type="SpriteFrames" uid="uid://cjd66m46t5mf1" path="res://Images/LaserAnimation.tres" id="4_tlo6d"]
 [ext_resource type="Script" uid="uid://cqmgw1pj76820" path="res://Scripts/AutoPlay.gd" id="5_flhp1"]
+[ext_resource type="Material" uid="uid://djwanamoeas15" path="res://Materials/LightEscShader.tres" id="5_xcvpv"]
 [ext_resource type="Script" uid="uid://dvgupeumm7rk6" path="res://Scripts/Hitbox.gd" id="6_2diwd"]
 [ext_resource type="Texture2D" uid="uid://saillekydf0d" path="res://Images/TilesetAndStuff.png" id="6_3n10h"]
+[ext_resource type="Texture2D" uid="uid://dvqd653nx4aov" path="res://Images/Particle.png" id="9_yfji4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hljf"]
 size = Vector2(16, 16)
@@ -18,11 +19,12 @@ size = Vector2(2, 4)
 [node name="LaserTurret" type="Node2D" unique_id=1662492332]
 texture_filter = 1
 script = ExtResource("1_3v58o")
-tracking_rate = 4.0
+tracking_rate = 3.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1479424432]
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("2_b5b5m")
+texture = ExtResource("6_3n10h")
+region_enabled = true
+region_rect = Rect2(48, 64, 16, 16)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=233079919]
 
@@ -33,23 +35,33 @@ shape = SubResource("RectangleShape2D_4hljf")
 script = ExtResource("3_xcvpv")
 metadata/_custom_type_script = "uid://oj5pnj1iu483"
 
-[node name="Laser" type="Node2D" parent="." unique_id=172547256]
+[node name="LaserGun" type="Sprite2D" parent="." unique_id=1181070581]
+z_index = 1
+texture = ExtResource("6_3n10h")
+offset = Vector2(2, 0)
+region_enabled = true
+region_rect = Rect2(64, 64, 8, 8)
+
+[node name="Laser" type="Node2D" parent="LaserGun" unique_id=172547256]
+z_index = -1
+position = Vector2(2, 0)
 script = ExtResource("3_ep7aa")
 
-[node name="RayCast2D" type="RayCast2D" parent="Laser" unique_id=1350728870]
+[node name="RayCast2D" type="RayCast2D" parent="LaserGun/Laser" unique_id=1350728870]
 target_position = Vector2(256, 0)
 
-[node name="LaserHB" type="Node2D" parent="Laser" unique_id=258082303]
+[node name="LaserHB" type="Node2D" parent="LaserGun/Laser" unique_id=258082303]
 self_modulate = Color(1, 1, 1, 0.69803923)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Laser/LaserHB" unique_id=336151052]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="LaserGun/Laser/LaserHB" unique_id=336151052]
+material = ExtResource("5_xcvpv")
 position = Vector2(1, 0)
 rotation = -1.5707941
 sprite_frames = ExtResource("4_tlo6d")
 frame_progress = 0.08403603
 script = ExtResource("5_flhp1")
 
-[node name="Hitbox" type="Area2D" parent="Laser/LaserHB" unique_id=2094699201]
+[node name="Hitbox" type="Area2D" parent="LaserGun/Laser/LaserHB" unique_id=2094699201]
 position = Vector2(1, 0)
 collision_layer = 64
 collision_mask = 2
@@ -59,17 +71,56 @@ peircing = true
 damage_type = 4
 metadata/_custom_type_script = "uid://dvgupeumm7rk6"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserHB/Hitbox" unique_id=1071159988]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserGun/Laser/LaserHB/Hitbox" unique_id=1071159988]
 shape = SubResource("RectangleShape2D_xcvpv")
 
-[node name="LaserEnd" type="Node2D" parent="Laser" unique_id=138058371]
+[node name="LaserEnd" type="Node2D" parent="LaserGun/Laser" unique_id=138058371]
+process_mode = 4
 position = Vector2(2, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Laser/LaserEnd" unique_id=962232753]
+[node name="Sprite2D" type="Sprite2D" parent="LaserGun/Laser/LaserEnd" unique_id=962232753]
+material = ExtResource("5_xcvpv")
 position = Vector2(2, 0)
 rotation = 1.5707941
 texture = ExtResource("6_3n10h")
 region_enabled = true
 region_rect = Rect2(36, 48, 8, 4)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="LaserGun/Laser/LaserEnd" unique_id=1778104092]
+amount = 10
+texture = ExtResource("9_yfji4")
+lifetime = 0.5
+randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(1, 3)
+direction = Vector2(-1, 0)
+spread = 70.0
+gravity = Vector2(0, 79)
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+damping_min = 30.0
+damping_max = 30.0
+angle_max = 360.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="LaserGun/Laser/LaserEnd" unique_id=23772742]
+amount = 10
+texture = ExtResource("9_yfji4")
+lifetime = 0.5
+randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(1, 3)
+direction = Vector2(-1, 0)
+spread = 50.0
+gravity = Vector2(0, 79)
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+damping_min = 30.0
+damping_max = 30.0
+angle_max = 360.0
+color = Color(0.866667, 0.239216, 0.239216, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1322320522]
